@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PREVIEW - Talento con Tarifa</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@500;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CDN config -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'brand-dark': '#020617',
+                        'genesis': '#FF4D00',
+                        'impulso': '#00D4FF',
+                        'dominio': '#FFD700',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        heading: ['Outfit', 'Space Grotesk', 'sans-serif'],
+                    },
+                    animation: {
+                        'float': 'float 6s ease-in-out infinite',
+                        'propeller': 'propeller 10s linear infinite',
+                        'pulse-glow': 'pulse-glow 3s infinite',
+                        'spin-slow': 'spin 4s linear infinite',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-20px)' },
+                        },
+                        propeller: {
+                            '0%': { transform: 'rotate(0deg)' },
+                            '100%': { transform: 'rotate(360deg)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { background-color: #020617; color: white; }
+        .animate-float { animation: float 6s ease-in-out infinite; }
+        .glass-panel { background: rgba(255, 255, 255, 0.05); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.1); }
+        .text-glow { text-shadow: 0 0 20px rgba(0, 212, 255, 0.5); }
+    </style>
+</head>
+<body class="bg-brand-dark text-white font-sans antialiased overflow-x-hidden selection:bg-impulso selection:text-brand-dark">
+
+    <!-- Background Gradients -->
+    <div class="fixed inset-0 z-0 pointer-events-none">
+        <div class="absolute top-0 left-1/4 w-96 h-96 bg-blue-900/20 rounded-full blur-[128px]"></div>
+        <div class="absolute bottom-0 right-1/4 w-96 h-96 bg-indigo-900/20 rounded-full blur-[128px]"></div>
+    </div>
+
+    <!-- Navbar Flotante -->
+    <nav class="fixed top-4 left-1/2 -translate-x-1/2 w-[90%] max-w-5xl z-50 rounded-2xl border border-white/10 bg-white/5 backdrop-blur-lg shadow-lg shadow-black/20">
+        <div class="flex items-center justify-between px-6 py-4">
+            <a href="/" class="text-xl font-heading font-bold tracking-tighter text-white">
+                T<span class="text-impulso">c</span>T
+            </a>
+            <div class="hidden md:flex items-center space-x-8 text-sm font-medium text-white/80">
+                <a href="#servicios" class="hover:text-white transition-colors">Servicios</a>
+                <a href="#proceso" class="hover:text-white transition-colors">Proceso</a>
+                <a href="#nosotros" class="hover:text-white transition-colors">Nosotros</a>
+            </div>
+            <a href="#contacto" class="hidden md:inline-flex px-5 py-2 rounded-full bg-white/10 hover:bg-white/20 border border-white/10 text-sm font-medium transition-all backdrop-blur-md">
+                Agendar
+            </a>
+        </div>
+    </nav>
+
+    <main class="relative z-10 w-full">
+        
+        <!-- HERO SECTION -->
+        <section class="min-h-screen flex items-center justify-center pt-20 px-6 relative overflow-hidden">
+            <div class="container mx-auto grid md:grid-cols-2 gap-12 items-center">
+                
+                <!-- Left Content -->
+                <div class="space-y-6 md:pr-10 z-10">
+                    <div class="inline-flex items-center px-3 py-1 rounded-full border border-impulso/30 bg-impulso/5 text-impulso text-xs font-bold tracking-widest uppercase mb-2">
+                        Agencia de Diseño
+                    </div>
+                    <h1 class="text-5xl md:text-7xl lg:text-8xl font-heading font-bold leading-[0.9] text-transparent bg-clip-text bg-gradient-to-br from-white via-white to-white/50">
+                        Diseño que <br/>
+                        Construye <br/>
+                        <span class="text-transparent bg-clip-text bg-gradient-to-r from-impulso to-blue-600">Imperios</span>
+                    </h1>
+                    <p class="text-lg md:text-xl text-slate-400 font-light max-w-lg leading-relaxed">
+                        Estrategia visual para marcas audaces que no juegan a empatar. Convertimos visión en dominio de mercado.
+                    </p>
+                    <div class="pt-4 flex flex-wrap gap-4">
+                        <button onclick="openModal()" class="group relative px-8 py-4 bg-impulso text-brand-dark font-heading font-bold text-lg rounded-sm overflow-hidden transition-all hover:shadow-[0_0_20px_rgba(0,212,255,0.5)] cursor-pointer">
+                            <span class="relative z-10">INICIAR DIAGNÓSTICO</span>
+                            <div class="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-300"></div>
+                        </button>
+                        <a href="#portfolio" class="px-8 py-4 border border-white/20 hover:border-white/50 text-white font-heading font-medium rounded-sm transition-colors">
+                            VER TRABAJOS
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Right Content (Image) -->
+                <div class="relative h-[500px] w-full flex items-center justify-center z-10">
+                    <div class="w-full h-full relative animate-float flex justify-center items-center">
+                        <div class="absolute inset-0 bg-gradient-to-tr from-impulso/10 to-purple-500/10 rounded-full blur-[100px] animate-pulse"></div>
+                        <!-- Using relative path assuming file is in same folder for preview, or public path -->
+                        <img src="./public/brain-hero.png" alt="Cerebro Mecánico IA" class="relative z-10 max-w-full max-h-full object-contain drop-shadow-[0_0_50px_rgba(0,212,255,0.3)] mix-blend-lighten" />
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SERVICES GRID -->
+        <section id="planes" class="py-24 px-6 relative">
+            <div class="container mx-auto">
+                <div class="flex flex-col md:flex-row gap-6 lg:gap-8 justify-center items-stretch">
+                    
+                    <!-- Tarjeta 1: Genesis -->
+                    <div class="flex-1 group relative p-8 rounded-2xl border border-white/5 bg-slate-900/50 backdrop-blur-md hover:bg-slate-900/80 transition-all duration-300 hover:-translate-y-2">
+                        <div class="absolute inset-0 border border-genesis/30 rounded-2xl opacity-50 group-hover:opacity-100 transition-opacity"></div>
+                        <h3 class="text-2xl font-heading font-bold text-white mb-2">Plan Génesis</h3>
+                        <p class="text-sm text-genesis font-mono mb-6">PARA STARTUPS</p>
+                        <ul class="space-y-3 text-slate-400 text-sm mb-8">
+                            <li class="flex items-center gap-2"><span class="text-genesis">▸</span> Branding Esencial</li>
+                            <li class="flex items-center gap-2"><span class="text-genesis">▸</span> Landing Page Veloz</li>
+                        </ul>
+                    </div>
+
+                    <!-- Tarjeta 2: Impulso -->
+                    <div class="flex-1 group relative p-8 rounded-2xl border border-white/5 bg-slate-900/50 backdrop-blur-md hover:bg-slate-900/80 transition-all duration-300 hover:-translate-y-2">
+                        <div class="absolute inset-0 border border-impulso/30 rounded-2xl opacity-50 group-hover:opacity-100 transition-opacity"></div>
+                        <h3 class="text-2xl font-heading font-bold text-white mb-2">Plan Impulso</h3>
+                        <p class="text-sm text-impulso font-mono mb-6">PARA GROWTH</p>
+                        <ul class="space-y-3 text-slate-400 text-sm mb-8">
+                            <li class="flex items-center gap-2"><span class="text-impulso">▸</span> Identidad Completa</li>
+                            <li class="flex items-center gap-2"><span class="text-impulso">▸</span> Web Corporativa</li>
+                        </ul>
+                    </div>
+
+                    <!-- Tarjeta 3: Dominio -->
+                    <div class="flex-1 group relative p-8 rounded-2xl border border-white/5 bg-brand-dark backdrop-blur-xl transition-all duration-500 hover:-translate-y-4 z-10 shadow-[0_0_50px_rgba(0,0,0,0.5)]">
+                        <div class="absolute -inset-0.5 bg-gradient-to-b from-dominio to-amber-600 rounded-2xl opacity-30 group-hover:opacity-60 blur-sm transition-opacity"></div>
+                        <div class="absolute inset-0 bg-brand-dark rounded-2xl"></div>
+                        <div class="relative z-10">
+                            <h3 class="text-3xl font-heading font-bold text-transparent bg-clip-text bg-gradient-to-r from-dominio to-amber-200">Plan Dominio</h3>
+                            <p class="text-sm text-dominio font-mono mt-1">TOTAL AUTHORITY</p>
+                            <div class="my-6 p-4 rounded-lg bg-dominio/5 border border-dominio/10">
+                                <p class="text-amber-100/80 text-sm italic">"Para quienes no compiten, sino que definen las reglas."</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SKELETON: PROCESO -->
+        <section id="proceso" class="py-24 px-6 border-b border-white/5">
+            <div class="container mx-auto">
+                <div class="mb-12 text-center">
+                    <span class="font-mono text-impulso text-sm tracking-widest">[ SYSTEM_WORKFLOW ]</span>
+                    <h2 class="text-4xl font-heading font-bold text-white mt-2">Nuestro Proceso</h2>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+                    <!-- Steps 1-4 -->
+                    <div class="h-64 rounded-xl border border-dashed border-white/10 bg-white/5 flex flex-col items-center justify-center p-6 text-center">
+                        <span class="font-mono text-xs text-white/20">PHASE_01</span>
+                    </div>
+                    <div class="h-64 rounded-xl border border-dashed border-white/10 bg-white/5 flex flex-col items-center justify-center p-6 text-center">
+                        <span class="font-mono text-xs text-white/20">PHASE_02</span>
+                    </div>
+                    <div class="h-64 rounded-xl border border-dashed border-white/10 bg-white/5 flex flex-col items-center justify-center p-6 text-center">
+                        <span class="font-mono text-xs text-white/20">PHASE_03</span>
+                    </div>
+                    <div class="h-64 rounded-xl border border-dashed border-white/10 bg-white/5 flex flex-col items-center justify-center p-6 text-center">
+                        <span class="font-mono text-xs text-white/20">PHASE_04</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Modal Advisor (Simplified for Preview) -->
+    <dialog id="advisor-modal" class="backdrop:bg-black/80 bg-transparent p-0 w-full h-full max-w-full m-0 z-50">
+        <div class="fixed inset-0 flex items-center justify-center p-4">
+            <div class="relative w-full max-w-2xl bg-[#020617] border border-white/10 rounded-3xl p-10 shadow-2xl">
+                <button onclick="closeModal()" class="absolute top-6 right-6 text-white/50 hover:text-white">✕</button>
+                <h2 class="text-4xl font-heading font-bold text-white mb-6">Diagnóstico de Potencial</h2>
+                <p class="text-lg text-slate-400 mb-10">Esta es una vista previa estática. En la versión completa, aquí interactúas con la IA.</p>
+                <div class="space-y-4">
+                    <div class="h-16 w-full bg-white/5 rounded-xl border border-white/10 animate-pulse"></div>
+                    <div class="h-16 w-full bg-white/5 rounded-xl border border-white/10 animate-pulse delay-100"></div>
+                </div>
+            </div>
+        </div>
+    </dialog>
+
+    <script>
+        const modal = document.getElementById('advisor-modal');
+        function openModal() { modal.showModal(); }
+        function closeModal() { modal.close(); }
+    </script>
+</body>
+</html>

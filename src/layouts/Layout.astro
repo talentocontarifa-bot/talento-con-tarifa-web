@@ -1,0 +1,62 @@
+---
+interface Props {
+	title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<!doctype html>
+<html lang="es" class="scroll-smooth">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="description" content="Talento con Tarifa - Diseño que Construye Imperios" />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="generator" content={Astro.generator} />
+		<title>{title}</title>
+		<!-- Google Fonts -->
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@500;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+	</head>
+	<body class="bg-brand-dark text-white font-sans antialiased overflow-x-hidden selection:bg-impulso selection:text-brand-dark">
+		
+		<!-- Background Gradients -->
+		<div class="fixed inset-0 z-0 pointer-events-none">
+			<div class="absolute top-0 left-1/4 w-96 h-96 bg-blue-900/20 rounded-full blur-[128px]"></div>
+			<div class="absolute bottom-0 right-1/4 w-96 h-96 bg-indigo-900/20 rounded-full blur-[128px]"></div>
+		</div>
+
+		<!-- Navbar Flotante -->
+		<nav class="fixed top-4 left-1/2 -translate-x-1/2 w-[90%] max-w-5xl z-50 rounded-2xl border border-white/10 bg-white/5 backdrop-blur-lg shadow-lg shadow-black/20">
+			<div class="flex items-center justify-between px-6 py-4">
+				<a href="/" class="text-xl font-heading font-bold tracking-tighter text-white">
+					T<span class="text-impulso">c</span>T
+				</a>
+				<div class="hidden md:flex items-center space-x-8 text-sm font-medium text-white/80">
+					<a href="#servicios" class="hover:text-white transition-colors">Servicios</a>
+					<a href="#proceso" class="hover:text-white transition-colors">Proceso</a>
+					<a href="#nosotros" class="hover:text-white transition-colors">Nosotros</a>
+				</div>
+				<a href="#contacto" class="hidden md:inline-flex px-5 py-2 rounded-full bg-white/10 hover:bg-white/20 border border-white/10 text-sm font-medium transition-all backdrop-blur-md">
+					Agendar
+				</a>
+			</div>
+		</nav>
+
+		<main class="relative z-10 w-full">
+			<slot />
+		</main>
+
+	</body>
+</html>
+
+<style is:global>
+	:root {
+		--accent-gradient: linear-gradient(45deg, #00D4FF, #0055FF);
+	}
+	html {
+		background-color: #020617;
+	}
+</style>

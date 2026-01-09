@@ -1,0 +1,204 @@
+---
+---
+
+<dialog id="advisor-modal" class="backdrop:bg-black/80 bg-transparent p-0 w-full h-full max-w-full max-h-full m-0 z-50 open:flex items-center justify-center">
+  <div class="relative w-full max-w-2xl bg-[#020617]/90 border border-white/10 rounded-3xl backdrop-blur-2xl shadow-2xl shadow-impulso/20 overflow-hidden">
+    
+    <!-- Close Button -->
+    <button id="close-advisor" class="absolute top-6 right-6 text-white/50 hover:text-white z-50">
+      <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+      </svg>
+    </button>
+
+    <!-- Decoration -->
+    <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-genesis via-impulso to-dominio"></div>
+
+    <div class="p-10 md:p-14 min-h-[500px] flex flex-col justify-center relative">
+      
+      <!-- STEP 1: WELCOME -->
+      <div id="step-0" class="step-content transition-all duration-500">
+        <h2 class="text-4xl font-heading font-bold text-white mb-6">Diagnóstico de Potencial</h2>
+        <p class="text-lg text-slate-400 mb-10 leading-relaxed">
+          Nuestra IA analizará 3 vectores de tu negocio: <strong class="text-white">Madurez Visual</strong>, <strong class="text-white">Capacidad de Ejecución</strong> y <strong class="text-white">Ambición</strong>.
+        </p>
+        <button data-next="1" class="w-full py-5 bg-impulso text-brand-dark font-bold text-xl rounded-lg hover:shadow-[0_0_30px_rgba(0,212,255,0.4)] transition-all">
+          INICIAR ESCANEO
+        </button>
+      </div>
+
+      <!-- QUESTIONS TEMPLATE -->
+      <div id="question-container" class="hidden opacity-0 transition-opacity duration-500">
+        <span class="text-xs font-mono text-impulso tracking-widest mb-4 block">VECTOR DE ANÁLISIS <span id="q-number">01</span>/03</span>
+        <h3 id="q-text" class="text-3xl font-heading font-bold text-white mb-10"></h3>
+        <div id="q-options" class="space-y-4">
+          <!-- Options injected via JS -->
+        </div>
+      </div>
+
+      <!-- PROCESSING (LOADING) -->
+      <div id="step-loading" class="hidden text-center absolute inset-0 flex flex-col items-center justify-center bg-[#020617] z-20">
+        <div class="w-24 h-24 border-t-2 border-b-2 border-impulso rounded-full animate-spin mb-6"></div>
+        <h3 class="text-2xl font-bold text-white animate-pulse">Procesando Vectores...</h3>
+        <div id="console-text" class="mt-4 font-mono text-xs text-green-500 h-6"></div>
+      </div>
+
+      <!-- RESULT -->
+      <div id="step-result" class="hidden text-center">
+        <span class="inline-block py-1 px-3 rounded-full border border-white/20 bg-white/5 text-white/70 text-xs mb-6">TU ESTRATEGIA IDEAL</span>
+        <h2 id="result-title" class="text-5xl font-heading font-bold text-transparent bg-clip-text bg-gradient-to-r from-impulso to-white mb-4"></h2>
+        <p id="result-desc" class="text-lg text-slate-400 mb-10 max-w-md mx-auto"></p>
+        <a href="#contacto" class="inline-flex py-4 px-10 bg-white text-brand-dark font-bold rounded-lg hover:bg-slate-200 transition-colors">
+          ACTIVAR PLAN
+        </a>
+      </div>
+
+    </div>
+  </div>
+</dialog>
+
+<script>
+  const modal = document.getElementById('advisor-modal');
+  const closeBtn = document.getElementById('close-advisor');
+  
+  // Logic from Premium Advisor KI
+  // Q1: Brand Maturity? -> Naked/Messy (Genesis) | Clean (Next)
+  // Q2: Execution Capacity? -> No Time (Dominio) | DIY/Team (Next)
+  // Q3: Ambition? -> Passenger (Dominio) | Driver (Impulso)
+
+  let score = { q1: '', q2: '', q3: '' };
+
+  const questions = [
+    {
+      id: 'q1',
+      text: "¿En qué estado se encuentra tu marca visual hoy?",
+      options: [
+        { label: "No tengo nada o es un desastre", value: "messy", next: 2 }, // Check logic later
+        { label: "Tengo algo básico pero funciona", value: "clean", next: 2 }
+      ]
+    },
+    {
+      id: 'q2',
+      text: "¿Cuánto tiempo puedes dedicarle al diseño?",
+      options: [
+        { label: "Cero. Necesito que alguien se encargue de todo.", value: "no_time", next: 3 },
+        { label: "Tengo equipo o puedo involucrarme.", value: "has_time", next: 3 }
+      ]
+    },
+    {
+      id: 'q3',
+      text: "¿Qué rol quieres jugar en el proceso?",
+      options: [
+        { label: "Quiero ser el copiloto (involucrarme)", value: "driver", next: 'finish' },
+        { label: "Solo quiero ver resultados (pasajero)", value: "passenger", next: 'finish' }
+      ]
+    }
+  ];
+
+  let currentQIndex = 0;
+
+  function startQuiz() {
+    document.getElementById('step-0').classList.add('hidden');
+    document.getElementById('question-container').classList.remove('hidden');
+    setTimeout(() => document.getElementById('question-container').classList.remove('opacity-0'), 50);
+    showQuestion(0);
+  }
+
+  function showQuestion(index) {
+    currentQIndex = index;
+    const q = questions[index];
+    document.getElementById('q-number').innerText = `0${index + 1}`;
+    document.getElementById('q-text').innerText = q.text;
+    
+    const optsContainer = document.getElementById('q-options');
+    optsContainer.innerHTML = '';
+    
+    q.options.forEach(opt => {
+      const btn = document.createElement('button');
+      btn.className = "w-full text-left p-6 rounded-xl border border-white/10 bg-white/5 hover:bg-white/10 hover:border-impulso/50 transition-all group";
+      btn.innerHTML = `<span class="text-lg text-white font-medium group-hover:text-impulso transition-colors">▸ ${opt.label}</span>`;
+      btn.onclick = () => handleAnswer(q.id, opt.value);
+      optsContainer.appendChild(btn);
+    });
+  }
+
+  function handleAnswer(qid, value) {
+    score[qid] = value;
+    
+    if (currentQIndex < questions.length - 1) {
+      // Fade out/in effect
+      const container = document.getElementById('question-container');
+      container.classList.add('opacity-0');
+      setTimeout(() => {
+        showQuestion(currentQIndex + 1);
+        container.classList.remove('opacity-0');
+      }, 300);
+    } else {
+      finishQuiz();
+    }
+  }
+
+  function finishQuiz() {
+    document.getElementById('question-container').classList.add('hidden');
+    const loading = document.getElementById('step-loading');
+    loading.classList.remove('hidden');
+
+    // Simulate work
+    const consoleText = document.getElementById('console-text');
+    const logs = ["Analizando identidad actual...", "Calculando vector de crecimiento...", "Buscando plan óptimo...", "Completado."];
+    let i = 0;
+    const interval = setInterval(() => {
+      if(i < logs.length) consoleText.innerText = `> ${logs[i]}`;
+      i++;
+    }, 500);
+
+    setTimeout(() => {
+      clearInterval(interval);
+      loading.classList.add('hidden');
+      calculateResult();
+    }, 2500);
+  }
+
+  function calculateResult() {
+    // Strategy Engine Implementation
+    let plan = '';
+    let reason = '';
+    let color = '';
+
+    if (score.q1 === 'messy') {
+      plan = 'PLAN GÉNESIS';
+      reason = "Tu prioridad es construir cimientos sólidos antes de escalar.";
+      color = 'text-genesis';
+    } else if (score.q2 === 'no_time' || score.q3 === 'passenger') {
+      plan = 'PLAN DOMINIO';
+      reason = "Necesitas una solución integral 'Done-For-You' para liderar sin perder tiempo.";
+      color = 'text-dominio';
+    } else {
+      plan = 'PLAN IMPULSO';
+      reason = "Tienes la tracción y el equipo para acelerar con nuestra dirección de arte.";
+      color = 'text-impulso';
+    }
+
+    const resTitle = document.getElementById('result-title');
+    resTitle.innerText = plan;
+    // Update gradient class based on result
+    if (plan.includes('GÉNESIS')) resTitle.className = "text-5xl font-heading font-bold text-transparent bg-clip-text bg-gradient-to-r from-genesis to-orange-200 mb-4";
+    if (plan.includes('IMPULSO')) resTitle.className = "text-5xl font-heading font-bold text-transparent bg-clip-text bg-gradient-to-r from-impulso to-cyan-200 mb-4";
+    if (plan.includes('DOMINIO')) resTitle.className = "text-5xl font-heading font-bold text-transparent bg-clip-text bg-gradient-to-r from-dominio to-amber-200 mb-4 shadow-amber-500/20";
+
+    document.getElementById('result-desc').innerText = reason;
+    document.getElementById('step-result').classList.remove('hidden');
+  }
+
+  // Event Listeners
+  document.querySelectorAll('[data-next="1"]').forEach(b => b.addEventListener('click', startQuiz));
+  closeBtn.addEventListener('click', () => modal.close());
+  
+  // Custom event to open modal
+  window.addEventListener('open-advisor', () => {
+    modal.showModal();
+    // Reset state if needed
+    document.getElementById('step-result').classList.add('hidden');
+  });
+
+</script>
