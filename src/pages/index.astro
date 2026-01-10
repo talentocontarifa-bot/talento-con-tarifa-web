@@ -142,29 +142,72 @@ import TalentAdvisor from '../components/TalentAdvisor.astro';
 		</div>
 	</section>
 
-	<!-- SKELETON: PROCESO (timeline/steps) -->
-	<section id="proceso" class="py-24 px-6 border-b border-white/5">
+	<!-- PROCESO (SYSTEM_WORKFLOW) -->
+	<section id="proceso" class="py-24 px-6 border-b border-white/5 bg-slate-900/20">
 		<div class="container mx-auto">
-			<div class="mb-12 text-center">
+			<div class="mb-16 text-center">
 				<span class="font-mono text-impulso text-sm tracking-widest">[ SYSTEM_WORKFLOW ]</span>
-				<h2 class="text-4xl font-heading font-bold text-white mt-2">Nuestro Proceso</h2>
+				<h2 class="text-4xl md:text-5xl font-heading font-bold text-white mt-4">Protocolo de Ejecución</h2>
+				<p class="text-slate-400 mt-4 max-w-xl mx-auto">Eliminamos el ruido. Un sistema lineal de 4 fases diseñado para velocidad y precisión quirúrgica.</p>
 			</div>
 			
-			<!-- Skeleton Grid -->
-			<div class="grid grid-cols-1 md:grid-cols-4 gap-6">
-				{[1, 2, 3, 4].map((i) => (
-					<div class="h-64 rounded-xl border border-dashed border-white/10 bg-white/5 flex flex-col items-center justify-center p-6 text-center group hover:border-impulso/30 transition-colors">
-						<div class="w-12 h-12 rounded-full bg-white/10 mb-4 animate-pulse"></div>
-						<div class="h-4 w-3/4 bg-white/10 rounded mb-2"></div>
-						<div class="h-3 w-1/2 bg-white/5 rounded"></div>
-						<span class="mt-8 font-mono text-xs text-white/20 group-hover:text-impulso">PHASE_0{i}</span>
+			<div class="grid grid-cols-1 md:grid-cols-4 gap-6 relative">
+				<!-- Connecting Line (Desktop) -->
+				<div class="hidden md:block absolute top-1/2 left-0 w-full h-px bg-gradient-to-r from-transparent via-impulso/30 to-transparent -translate-y-1/2 z-0"></div>
+
+				<!-- Step 1 -->
+				<div class="relative z-10 h-80 rounded-2xl border border-white/10 bg-[#0A0F1E] p-8 flex flex-col items-start justify-between group hover:border-impulso/40 transition-all hover:-translate-y-2">
+					<div class="w-12 h-12 rounded-lg bg-impulso/10 border border-impulso/20 flex items-center justify-center text-impulso font-bold text-xl mb-4 group-hover:scale-110 transition-transform">01</div>
+					<div>
+						<h3 class="text-xl font-heading font-bold text-white mb-2 group-hover:text-impulso transition-colors">Inmersión</h3>
+						<p class="text-sm text-slate-400 leading-relaxed">Auditoría profunda de la marca. Deconstruimos tu visión y analizamos las brechas del mercado.</p>
 					</div>
-				))}
+					<div class="w-full h-1 bg-white/5 rounded-full overflow-hidden">
+						<div class="h-full w-1/4 bg-impulso"></div>
+					</div>
+				</div>
+
+				<!-- Step 2 -->
+				<div class="relative z-10 h-80 rounded-2xl border border-white/10 bg-[#0A0F1E] p-8 flex flex-col items-start justify-between group hover:border-impulso/40 transition-all hover:-translate-y-2">
+					<div class="w-12 h-12 rounded-lg bg-impulso/10 border border-impulso/20 flex items-center justify-center text-impulso font-bold text-xl mb-4 group-hover:scale-110 transition-transform">02</div>
+					<div>
+						<h3 class="text-xl font-heading font-bold text-white mb-2 group-hover:text-impulso transition-colors">Estrategia</h3>
+						<p class="text-sm text-slate-400 leading-relaxed">El Blueprint. Definimos la arquitectura visual y el mensaje que te separará del ruido.</p>
+					</div>
+					<div class="w-full h-1 bg-white/5 rounded-full overflow-hidden">
+						<div class="h-full w-2/4 bg-impulso"></div>
+					</div>
+				</div>
+
+				<!-- Step 3 -->
+				<div class="relative z-10 h-80 rounded-2xl border border-white/10 bg-[#0A0F1E] p-8 flex flex-col items-start justify-between group hover:border-impulso/40 transition-all hover:-translate-y-2">
+					<div class="w-12 h-12 rounded-lg bg-impulso/10 border border-impulso/20 flex items-center justify-center text-impulso font-bold text-xl mb-4 group-hover:scale-110 transition-transform">03</div>
+					<div>
+						<h3 class="text-xl font-heading font-bold text-white mb-2 group-hover:text-impulso transition-colors">Construcción</h3>
+						<p class="text-sm text-slate-400 leading-relaxed">Diseño y desarrollo iterativo. Sprints de alta intensidad. Feedback en tiempo real.</p>
+					</div>
+					<div class="w-full h-1 bg-white/5 rounded-full overflow-hidden">
+						<div class="h-full w-3/4 bg-impulso"></div>
+					</div>
+				</div>
+
+				<!-- Step 4 -->
+				<div class="relative z-10 h-80 rounded-2xl border border-white/10 bg-[#0A0F1E] p-8 flex flex-col items-start justify-between group hover:border-impulso/40 transition-all hover:-translate-y-2">
+					<div class="w-12 h-12 rounded-lg bg-genesis/10 border border-genesis/50 flex items-center justify-center text-genesis font-bold text-xl mb-4 group-hover:scale-110 transition-transform shadow-[0_0_20px_rgba(255,77,0,0.2)]">04</div>
+					<div>
+						<h3 class="text-xl font-heading font-bold text-white mb-2 group-hover:text-genesis transition-colors">Despliegue</h3>
+						<p class="text-sm text-slate-400 leading-relaxed">Lanzamiento oficial. Entrega de assets, documentación y roadmap de escalado.</p>
+					</div>
+					<div class="w-full h-1 bg-white/5 rounded-full overflow-hidden">
+						<div class="h-full w-full bg-genesis"></div>
+					</div>
+				</div>
+
 			</div>
 		</div>
 	</section>
 
-	<!-- SKELETON: PORTFOLIO / CLIENTES -->
+	<!-- PORTFOLIO / CLIENTES -->
 	<section id="portfolio" class="py-24 px-6 relative overflow-hidden">
 		<!-- Background Grid Decoration -->
 		<div class="absolute inset-0 z-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:100px_100px]"></div>
@@ -175,27 +218,56 @@ import TalentAdvisor from '../components/TalentAdvisor.astro';
 					<span class="font-mono text-dominio text-sm tracking-widest">[ DEPLOYED_PROJECTS ]</span>
 					<h2 class="text-4xl font-heading font-bold text-white mt-2">Casos de Éxito</h2>
 				</div>
-				<div class="hidden md:block">
-					<div class="h-10 w-32 bg-white/10 rounded border border-white/10"></div>
-				</div>
+				<a href="/portfolio" class="hidden md:inline-block text-sm font-mono text-white/50 hover:text-white border-b border-transparent hover:border-white transition-all">VER TODOS ///</a>
 			</div>
 
-			<!-- Masonry Skeleton -->
-			<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 h-[600px]">
+			<!-- Masonry Grid -->
+			<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 h-auto md:h-[600px]">
 				<!-- Large Feature Item -->
-				<div class="lg:col-span-2 lg:row-span-2 rounded-2xl border border-dashed border-white/10 bg-gradient-to-br from-white/5 to-transparent flex items-center justify-center relative overflow-hidden group">
-					<div class="absolute inset-0 bg-brand-dark/50 flex items-center justify-center backdrop-blur-sm opacity-0 group-hover:opacity-100 transition-opacity">
-						<span class="text-white font-mono border border-white px-4 py-2 rounded">VIEW_CASE</span>
+				<div class="lg:col-span-2 lg:row-span-2 h-[400px] md:h-auto rounded-2xl border border-white/10 bg-[#050510] relative overflow-hidden group cursor-pointer">
+					<img src="https://images.unsplash.com/photo-1635070041078-e363dbe005cb?q=80&w=2670&auto=format&fit=crop" alt="Cyberpunk City" class="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:opacity-40 group-hover:scale-105 transition-all duration-700" />
+					<div class="absolute inset-0 bg-gradient-to-t from-brand-dark via-brand-dark/50 to-transparent"></div>
+					<div class="absolute bottom-0 left-0 p-8 md:p-12 w-full">
+						<div class="flex justify-between items-end">
+							<div>
+								<span class="text-impulso font-mono text-sm tracking-wider mb-2 block">FINTECH / WEB3</span>
+								<h3 class="text-3xl md:text-5xl font-heading font-bold text-white mb-4">Nexus Protocol</h3>
+								<p class="text-slate-300 max-w-md line-clamp-2 md:line-clamp-none">Rediseño completo de identidad y plataforma de trading para el exchange descentralizado más rápido de Latam.</p>
+							</div>
+							<div class="hidden md:block w-12 h-12 rounded-full border border-white/30 flex items-center justify-center group-hover:bg-white group-hover:text-black transition-all">
+								<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25" /></svg>
+							</div>
+						</div>
 					</div>
-					<span class="text-white/20 font-bold text-2xl rotate-[-15deg]">FEATURED PROJECT</span>
 				</div>
-				<!-- Smaller item -->
-				<div class="rounded-2xl border border-dashed border-white/10 bg-white/5"></div>
-				<!-- Smaller item -->
-				<div class="rounded-2xl border border-dashed border-white/10 bg-white/5"></div>
+				
+				<!-- Smaller item 1 -->
+				<div class="rounded-2xl border border-white/10 bg-[#050510] relative overflow-hidden group cursor-pointer h-[300px] md:h-auto">
+					<img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=2564&auto=format&fit=crop" alt="Abstract Art" class="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:opacity-40 group-hover:scale-105 transition-all duration-700" />
+					<div class="absolute inset-0 bg-gradient-to-t from-brand-dark to-transparent"></div>
+					<div class="absolute bottom-0 left-0 p-6 md:p-8">
+						<span class="text-genesis font-mono text-xs tracking-wider mb-1 block">ECOMMERCE</span>
+						<h3 class="text-2xl font-heading font-bold text-white">Aura Skin</h3>
+					</div>
+				</div>
+
+				<!-- Smaller item 2 -->
+				<div class="rounded-2xl border border-white/10 bg-[#050510] relative overflow-hidden group cursor-pointer h-[300px] md:h-auto">
+					<div class="absolute inset-0 bg-gradient-to-br from-indigo-900/40 to-purple-900/40 opacity-100 transition-all"></div>
+					<div class="absolute inset-0 flex items-center justify-center">
+						<span class="text-6xl font-heading font-bold text-white/5 group-hover:text-white/10 transition-colors">AI/ML</span>
+					</div>
+					<div class="absolute bottom-0 left-0 p-6 md:p-8">
+						<span class="text-dominio font-mono text-xs tracking-wider mb-1 block">SAAS B2B</span>
+						<h3 class="text-2xl font-heading font-bold text-white">Cortex Analytics</h3>
+					</div>
+				</div>
 			</div>
 		</div>
 	</section>
+
+	<!-- INTEL SECTION (Keeping existing) -->
+
 
 	<!-- INTEL / BLOG SECTION -->
 	<section id="intel" class="py-24 px-6 relative border-t border-white/5">
@@ -275,30 +347,84 @@ import TalentAdvisor from '../components/TalentAdvisor.astro';
 		</div>
 	</section>
 
-	<!-- SKELETON: CONTACTO -->
-	<section id="contacto" class="py-24 px-6 border-t border-white/10 bg-gradient-to-b from-brand-dark to-slate-900">
-		<div class="container mx-auto max-w-4xl">
-			<div class="rounded-3xl border border-white/10 bg-white/5 p-12 backdrop-blur-xl relative overflow-hidden">
-				<!-- Glow effect -->
-				<div class="absolute -top-20 -right-20 w-64 h-64 bg-impulso/20 rounded-full blur-[80px]"></div>
+	<!-- CONTACTO -->
+	<section id="contacto" class="py-24 px-6 border-t border-white/10 bg-gradient-to-b from-brand-dark to-[#050510]">
+		<div class="container mx-auto max-w-5xl">
+			<div class="rounded-[2rem] border border-white/10 bg-white/5 p-8 md:p-12 backdrop-blur-xl relative overflow-hidden shadow-2xl">
 				
-				<div class="grid md:grid-cols-2 gap-12 relative z-10">
-					<div class="space-y-6">
-						<div class="h-8 w-3/4 bg-white/20 rounded"></div>
-						<div class="h-4 w-full bg-white/10 rounded"></div>
-						<div class="h-4 w-5/6 bg-white/10 rounded"></div>
-						<div class="pt-8 space-y-4">
-							<div class="h-12 w-full border border-white/10 rounded bg-black/20"></div>
-							<div class="h-12 w-full border border-white/10 rounded bg-black/20"></div>
+				<!-- Glow effects -->
+				<div class="absolute -top-40 -right-40 w-96 h-96 bg-impulso/10 rounded-full blur-[100px] pointer-events-none"></div>
+				<div class="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-impulso/50 to-transparent"></div>
+
+				<div class="grid md:grid-cols-2 gap-12 md:gap-20 relative z-10">
+					
+					<!-- Info Column -->
+					<div class="space-y-8">
+						<div>
+							<span class="inline-block py-1 px-3 rounded text-xs font-mono bg-white/10 text-white mb-4 border border-white/5">STATUS: ONLINE</span>
+							<h2 class="text-4xl md:text-5xl font-heading font-bold text-white leading-tight">
+								¿Listo para <br/>
+								<span class="text-transparent bg-clip-text bg-gradient-to-r from-impulso to-blue-500">escalar?</span>
+							</h2>
+							<p class="text-slate-400 mt-4 text-lg">
+								No buscamos clientes, buscamos socios estratégicos. Si tienes la ambición, nosotros tenemos la artillería.
+							</p>
+						</div>
+
+						<div class="space-y-4 pt-4">
+							<a href="mailto:hola@talentocontarifa.com" class="flex items-center gap-4 p-4 rounded-xl border border-white/5 bg-white/5 hover:bg-white/10 hover:border-impulso/30 transition-all group">
+								<div class="w-10 h-10 rounded-full bg-brand-dark flex items-center justify-center text-impulso group-hover:scale-110 transition-transform">
+									<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5"><path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" /></svg>
+								</div>
+								<div>
+									<span class="block text-xs font-mono text-slate-500 uppercase">Email Encriptado</span>
+									<span class="text-white font-medium">hola@talentocontarifa.com</span>
+								</div>
+							</a>
+
+							<a href="https://wa.me/5211234567890" target="_blank" class="flex items-center gap-4 p-4 rounded-xl border border-white/5 bg-white/5 hover:bg-white/10 hover:border-green-500/30 transition-all group">
+								<div class="w-10 h-10 rounded-full bg-brand-dark flex items-center justify-center text-green-500 group-hover:scale-110 transition-transform">
+									<svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24" class="w-5 h-5"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.008-.57-.008-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+								</div>
+								<div>
+									<span class="block text-xs font-mono text-slate-500 uppercase">Línea Directa</span>
+									<span class="text-white font-medium">WhatsApp Business</span>
+								</div>
+							</a>
 						</div>
 					</div>
-					<div class="flex flex-col justify-center space-y-6 text-center border-l border-white/5 pl-12">
-						<div class="w-16 h-16 bg-white/10 rounded-full mx-auto animate-pulse"></div>
-						<div class="h-4 w-1/2 bg-white/10 rounded mx-auto"></div>
-						<div class="h-12 w-full bg-impulso/20 border border-impulso/50 rounded flex items-center justify-center text-impulso font-mono text-sm">
-							[ UPLINK_READY ]
-						</div>
+
+					<!-- Form Column -->
+					<div class="bg-brand-dark/50 p-8 rounded-2xl border border-white/5">
+						<form class="space-y-6">
+							<div class="grid grid-cols-2 gap-6">
+								<div class="space-y-2">
+									<label class="text-xs font-mono text-slate-400 ml-1">NOMBRE_CLAVE</label>
+									<input type="text" placeholder="Ej: John Doe" class="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-impulso/50 transition-colors" />
+								</div>
+								<div class="space-y-2">
+									<label class="text-xs font-mono text-slate-400 ml-1">EMPRESA</label>
+									<input type="text" placeholder="Ej: Corp Inc." class="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-impulso/50 transition-colors" />
+								</div>
+							</div>
+							
+							<div class="space-y-2">
+								<label class="text-xs font-mono text-slate-400 ml-1">CANAL_DE_RESPUESTA</label>
+								<input type="email" placeholder="tu@email.com" class="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-impulso/50 transition-colors" />
+							</div>
+
+							<div class="space-y-2">
+								<label class="text-xs font-mono text-slate-400 ml-1">MENSAJE_CIFRADO(OPCIONAL)</label>
+								<textarea rows="4" placeholder="Cuéntanos tu misión..." class="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-impulso/50 transition-colors"></textarea>
+							</div>
+
+							<button type="button" class="w-full py-4 bg-white text-brand-dark font-bold rounded-lg hover:bg-slate-200 transition-all flex items-center justify-center gap-2 group">
+								INICIAR COMUNICACIÓN
+								<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-4 h-4 group-hover:translate-x-1 transition-transform"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" /></svg>
+							</button>
+						</form>
 					</div>
+
 				</div>
 			</div>
 		</div>
