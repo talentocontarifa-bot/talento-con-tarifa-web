@@ -1,9 +1,15 @@
 import { config, fields, collection } from '@keystatic/core';
 
 export default config({
-    storage: {
-        kind: 'local',
-    },
+    storage: import.meta.env.DEV
+        ? { kind: 'local' }
+        : {
+            kind: 'github',
+            repo: {
+                owner: 'talentocontarifa-bot',
+                name: 'talento-con-tarifa-web',
+            },
+        },
     collections: {
         posts: collection({
             label: 'Intel (Blog)',
