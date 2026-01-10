@@ -1,0 +1,40 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { getCollection } from 'astro:content';
+
+const posts = await getCollection('blog');
+---
+
+<Layout title="Intel & Transmisiones | Talento con Tarifa">
+	<section class="py-32 px-6">
+		<div class="container mx-auto max-w-4xl">
+			<h1 class="text-5xl font-heading font-bold text-white mb-4">Intel <span class="text-impulso">/</span> Archivo</h1>
+			<p class="text-xl text-slate-400 mb-16">Estrategias y pensamientos para la era post-digital.</p>
+
+			<div class="grid gap-12">
+				{posts.map(post => (
+					<article class="group relative grid md:grid-cols-3 gap-8 items-start border-b border-white/10 pb-12">
+						<div class="md:col-span-1 aspect-video bg-white/5 rounded-xl border border-white/10 overflow-hidden">
+							<div class="w-full h-full bg-gradient-to-tr from-brand-dark to-slate-800 group-hover:scale-105 transition-transform duration-500"></div>
+						</div>
+						<div class="md:col-span-2 space-y-4">
+							<div class="flex items-center gap-4 text-xs font-mono">
+								<span class="text-genesis">{post.data.tags[0]}</span>
+								<span class="text-slate-500">{post.data.pubDate.toLocaleDateString()}</span>
+							</div>
+							<h2 class="text-3xl font-heading font-bold text-white group-hover:text-impulso transition-colors">
+								{post.data.title}
+							</h2>
+							<p class="text-slate-400 leading-relaxed">
+								{post.data.description}
+							</p>
+							<a href={`/blog/${post.slug}`} class="inline-flex items-center gap-2 text-impulso font-bold text-sm uppercase tracking-widest mt-2">
+								Leer Artículo →
+							</a>
+						</div>
+					</article>
+				))}
+			</div>
+		</div>
+	</section>
+</Layout>
