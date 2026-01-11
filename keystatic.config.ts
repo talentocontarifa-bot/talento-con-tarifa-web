@@ -10,8 +10,9 @@ export default config({
                 name: 'talento-con-tarifa-web',
             },
             clientId: 'Ov23liEDYhi9gO079O7K',
-            clientSecret: import.meta.env.GH_CLIENT_SECRET || (typeof process !== 'undefined' ? process.env.GH_CLIENT_SECRET : undefined),
-            secret: import.meta.env.KEYSTATIC_SECRET || (typeof process !== 'undefined' ? process.env.KEYSTATIC_SECRET : undefined),
+            // Secret will be injected at runtime in the API handler
+            clientSecret: '',
+            secret: import.meta.env.KEYSTATIC_SECRET,
         },
     collections: {
         posts: collection({
