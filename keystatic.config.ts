@@ -1,5 +1,16 @@
 import { config, fields, collection } from '@keystatic/core';
 
+// Safe environment variable retrieval
+const getEnv = (key: string) => {
+    if (typeof import.meta !== 'undefined' && import.meta.env && import.meta.env[key]) {
+        return import.meta.env[key];
+    }
+    if (typeof process !== 'undefined' && process.env && process.env[key]) {
+        return process.env[key];
+    }
+    return undefined;
+};
+
 export default config({
     storage: import.meta.env.DEV
         ? { kind: 'local' }
@@ -10,9 +21,8 @@ export default config({
                 name: 'talento-con-tarifa-web',
             },
             clientId: 'Ov23liEDYhi9gO079O7K',
-            // Secret will be injected at runtime in the API handler
-            clientSecret: '',
-            secret: import.meta.env.KEYSTATIC_SECRET,
+            clientSecret: getEnv('GH_CLIENT_SECRET') || getEnv('KEYSTATIC_GITHUB_CLIENT_SECRET'),
+            secret: getEnv('KEYSTATIC_SECRET'),
         },
     collections: {
         posts: collection({
