@@ -26,7 +26,8 @@ export const ALL = async (context: any) => {
                 name: 'talento-con-tarifa-web',
             },
             clientId: 'Ov23liEDYhi9gO079O7K',
-            clientSecret: ghSecret || '',
+            // DIAGNOSTIC HARDCODE: Force the secret directly to bypass env var issues
+            clientSecret: '82f77a2396297365e8a2744e9c5a443da8725966',
         },
     } as any;
 
