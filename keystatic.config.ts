@@ -21,8 +21,8 @@ export default config({
                 name: 'talento-con-tarifa-web',
             },
             clientId: 'Ov23liEDYhi9gO079O7K',
-            clientSecret: getEnv('GH_CLIENT_SECRET') || getEnv('KEYSTATIC_GITHUB_CLIENT_SECRET'),
-            secret: getEnv('KEYSTATIC_SECRET'),
+            clientSecret: import.meta.env.GH_CLIENT_SECRET || import.meta.env.KEYSTATIC_GITHUB_CLIENT_SECRET || (typeof process !== 'undefined' ? (process.env.GH_CLIENT_SECRET || process.env.KEYSTATIC_GITHUB_CLIENT_SECRET) : ''),
+            secret: import.meta.env.KEYSTATIC_SECRET || (typeof process !== 'undefined' ? process.env.KEYSTATIC_SECRET : ''),
         },
     collections: {
         posts: collection({
