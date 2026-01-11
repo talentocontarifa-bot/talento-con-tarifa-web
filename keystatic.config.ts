@@ -9,8 +9,9 @@ export default config({
                 owner: 'talentocontarifa-bot',
                 name: 'talento-con-tarifa-web',
             },
-            clientId: import.meta.env.GH_CLIENT_ID,
-            clientSecret: import.meta.env.GH_CLIENT_SECRET,
+            clientId: import.meta.env.GH_CLIENT_ID || process.env.GH_CLIENT_ID,
+            clientSecret: import.meta.env.GH_CLIENT_SECRET || process.env.GH_CLIENT_SECRET,
+            secret: import.meta.env.KEYSTATIC_SECRET || process.env.KEYSTATIC_SECRET,
         },
     collections: {
         posts: collection({
