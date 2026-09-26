@@ -4,23 +4,30 @@ export default {
     theme: {
         extend: {
             colors: {
-                'brand-dark': '#020617', // slate-950
-                'genesis': '#FF4D00', // Naranja Neón
-                'impulso': '#00D4FF', // Cian Eléctrico
-                'dominio': '#FFD700', // Oro Metálico
+                'brand-yellow': '#CCFF00', // El amarillo chillante icónico de talentocontarifa.lat
+                'brand-dark': '#050510',
+                'brand-gray': '#F0F0F0',
             },
             fontFamily: {
-                sans: ['Inter', 'sans-serif'],
-                heading: ['Outfit', 'Space Grotesk', 'sans-serif'],
+                sans: ['Inter', 'system-ui', 'sans-serif'],
+                heading: ['Space Grotesk', 'Outfit', 'sans-serif'],
+                mono: ['Share Tech Mono', 'ui-monospace', 'monospace'],
+            },
+            boxShadow: {
+                'brutal-sm': '4px 4px 0px 0px rgba(0,0,0,1)',
+                'brutal': '6px 6px 0px 0px rgba(0,0,0,1)',
+                'brutal-lg': '8px 8px 0px 0px rgba(0,0,0,1)',
+                'brutal-xl': '12px 12px 0px 0px rgba(0,0,0,1)',
+                'brutal-yellow': '6px 6px 0px 0px #CCFF00',
             },
             animation: {
-                'float': 'float 6s ease-in-out infinite',
-                'spin-slow': 'spin 4s linear infinite',
+                'marquee': 'marquee 22s linear infinite',
+                'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
             },
             keyframes: {
-                float: {
-                    '0%, 100%': { transform: 'translateY(0)' },
-                    '50%': { transform: 'translateY(-20px)' },
+                marquee: {
+                    '0%': { transform: 'translateX(0%)' },
+                    '100%': { transform: 'translateX(-50%)' },
                 }
             }
         },

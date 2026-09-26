@@ -1,213 +1,493 @@
 <!DOCTYPE html>
-<html lang="es" class="scroll-smooth">
+<html lang="es" class="scroll-smooth bg-[#F0F0F0]">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PREVIEW - Talento con Tarifa</title>
-    
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@500;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
-    
-    <!-- Tailwind CDN config -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        'brand-dark': '#020617',
-                        'genesis': '#FF4D00',
-                        'impulso': '#00D4FF',
-                        'dominio': '#FFD700',
-                    },
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                        heading: ['Outfit', 'Space Grotesk', 'sans-serif'],
-                    },
-                    animation: {
-                        'float': 'float 6s ease-in-out infinite',
-                        'propeller': 'propeller 10s linear infinite',
-                        'pulse-glow': 'pulse-glow 3s infinite',
-                        'spin-slow': 'spin 4s linear infinite',
-                    },
-                    keyframes: {
-                        float: {
-                            '0%, 100%': { transform: 'translateY(0)' },
-                            '50%': { transform: 'translateY(-20px)' },
-                        },
-                        propeller: {
-                            '0%': { transform: 'rotate(0deg)' },
-                            '100%': { transform: 'rotate(360deg)' },
-                        }
-                    }
-                }
-            }
-        }
-    </script>
-    <style>
-        body { background-color: #020617; color: white; }
-        .animate-float { animation: float 6s ease-in-out infinite; }
-        .glass-panel { background: rgba(255, 255, 255, 0.05); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.1); }
-        .text-glow { text-shadow: 0 0 20px rgba(0, 212, 255, 0.5); }
-    </style>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Talento con Tarifa | Agencia Irreverente // Brinca al Vacío</title>
+	<link rel="icon" type="image/svg+xml" href="public/icon.svg" />
+
+	<!-- Google Fonts -->
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&family=Space+Grotesk:wght@500;700;900&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+	
+	<!-- Tailwind CDN with custom config -->
+	<script src="https://cdn.tailwindcss.com"></script>
+	<script>
+		tailwind.config = {
+			theme: {
+				extend: {
+					colors: {
+						'brand-yellow': '#CCFF00',
+					},
+					fontFamily: {
+						sans: ['Inter', 'system-ui', 'sans-serif'],
+						heading: ['Space Grotesk', 'sans-serif'],
+						mono: ['Share Tech Mono', 'monospace'],
+					},
+					keyframes: {
+						marquee: {
+							'0%': { transform: 'translateX(0%)' },
+							'100%': { transform: 'translateX(-50%)' },
+						}
+					},
+					animation: {
+						marquee: 'marquee 20s linear infinite',
+					}
+				}
+			}
+		}
+	</script>
+	<style>
+		@keyframes marquee {
+			0% { transform: translateX(0%); }
+			100% { transform: translateX(-50%); }
+		}
+		.animate-marquee {
+			display: flex;
+			width: 200%;
+			animation: marquee 20s linear infinite;
+		}
+		.animate-marquee:hover {
+			animation-play-state: paused;
+		}
+	</style>
 </head>
-<body class="bg-brand-dark text-white font-sans antialiased overflow-x-hidden selection:bg-impulso selection:text-brand-dark">
+<body class="bg-[#F0F0F0] text-black font-sans antialiased overflow-x-hidden selection:bg-black selection:text-[#CCFF00] min-h-screen flex flex-col justify-between">
 
-    <!-- Background Gradients -->
-    <div class="fixed inset-0 z-0 pointer-events-none">
-        <div class="absolute top-0 left-1/4 w-96 h-96 bg-blue-900/20 rounded-full blur-[128px]"></div>
-        <div class="absolute bottom-0 right-1/4 w-96 h-96 bg-indigo-900/20 rounded-full blur-[128px]"></div>
-    </div>
+	<!-- Fixed Nav Bar Brutalista (#CCFF00 con borde negro de 4px) -->
+	<nav class="fixed top-0 left-0 w-full z-50 border-b-4 border-black bg-[#CCFF00] py-3.5 px-4 sm:px-8">
+		<div class="max-w-7xl mx-auto flex items-center justify-between">
+			
+			<!-- Logo & Icono Oficial -->
+			<a href="#" class="flex items-center gap-2 group">
+				<div class="w-10 h-10 bg-black border-2 border-black flex items-center justify-center transform -rotate-3 group-hover:rotate-0 transition-transform p-1.5 shadow-[3px_3px_0px_0px_rgba(0,0,0,1)]">
+					<img src="public/icon.svg" alt="Icono Talento con Tarifa" class="w-full h-full object-contain" />
+				</div>
+				<div class="relative w-44 h-7 sm:w-60 sm:h-9 ml-2">
+					<img src="public/horizontal.svg" alt="Talento con Tarifa" class="w-full h-full object-contain" />
+				</div>
+			</a>
 
-    <!-- Navbar Flotante -->
-    <nav class="fixed top-4 left-1/2 -translate-x-1/2 w-[90%] max-w-5xl z-50 rounded-2xl border border-white/10 bg-white/5 backdrop-blur-lg shadow-lg shadow-black/20">
-        <div class="flex items-center justify-between px-6 py-4">
-            <a href="/" class="text-xl font-heading font-bold tracking-tighter text-white">
-                T<span class="text-impulso">c</span>T
-            </a>
-            <div class="hidden md:flex items-center space-x-8 text-sm font-medium text-white/80">
-                <a href="#servicios" class="hover:text-white transition-colors">Servicios</a>
-                <a href="#proceso" class="hover:text-white transition-colors">Proceso</a>
-                <a href="#nosotros" class="hover:text-white transition-colors">Nosotros</a>
-            </div>
-            <a href="#contacto" class="hidden md:inline-flex px-5 py-2 rounded-full bg-white/10 hover:bg-white/20 border border-white/10 text-sm font-medium transition-all backdrop-blur-md">
-                Agendar
-            </a>
-        </div>
-    </nav>
+			<!-- Botón Nav Directo -->
+			<div class="flex items-center gap-4">
+				<span class="hidden lg:inline-block font-mono font-bold text-xs uppercase bg-black text-[#CCFF00] px-3 py-1 border-2 border-black transform rotate-1">
+					ACCESO DIRECTO // SIN FORMULARIOS
+				</span>
 
-    <main class="relative z-10 w-full">
-        
-        <!-- HERO SECTION -->
-        <section class="min-h-screen flex items-center justify-center pt-20 px-6 relative overflow-hidden">
-            <div class="container mx-auto grid md:grid-cols-2 gap-12 items-center">
-                
-                <!-- Left Content -->
-                <div class="space-y-6 md:pr-10 z-10">
-                    <div class="inline-flex items-center px-3 py-1 rounded-full border border-impulso/30 bg-impulso/5 text-impulso text-xs font-bold tracking-widest uppercase mb-2">
-                        Agencia de Diseño
-                    </div>
-                    <h1 class="text-5xl md:text-7xl lg:text-8xl font-heading font-bold leading-[0.9] text-transparent bg-clip-text bg-gradient-to-br from-white via-white to-white/50">
-                        Diseño que <br/>
-                        Construye <br/>
-                        <span class="text-transparent bg-clip-text bg-gradient-to-r from-impulso to-blue-600">Imperios</span>
-                    </h1>
-                    <p class="text-lg md:text-xl text-slate-400 font-light max-w-lg leading-relaxed">
-                        Estrategia visual para marcas audaces que no juegan a empatar. Convertimos visión en dominio de mercado.
-                    </p>
-                    <div class="pt-4 flex flex-wrap gap-4">
-                        <button onclick="openModal()" class="group relative px-8 py-4 bg-impulso text-brand-dark font-heading font-bold text-lg rounded-sm overflow-hidden transition-all hover:shadow-[0_0_20px_rgba(0,212,255,0.5)] cursor-pointer">
-                            <span class="relative z-10">INICIAR DIAGNÓSTICO</span>
-                            <div class="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-300"></div>
-                        </button>
-                        <a href="#portfolio" class="px-8 py-4 border border-white/20 hover:border-white/50 text-white font-heading font-medium rounded-sm transition-colors">
-                            VER TRABAJOS
-                        </a>
-                    </div>
-                </div>
+				<a 
+					href="https://wa.me/525644982624?text=Hola.%20Llegu%C3%A9%20por%20curiosidad.%20Quiero%20ver%20qu%C3%A9%20tan%20profundo%20llega%20el%20agujero%20del%20conejo."
+					target="_blank"
+					rel="noopener noreferrer"
+					class="bg-black text-[#CCFF00] hover:bg-white hover:text-black hover:border-black px-5 py-2 sm:px-6 sm:py-2.5 font-heading font-black text-sm uppercase tracking-wider border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-none hover:translate-x-[2px] hover:translate-y-[2px] active:translate-x-1 active:translate-y-1 active:shadow-none transition-none flex items-center gap-2"
+				>
+					<span>HÁBLAME, PLATICAMOS</span>
+					<svg class="w-4 h-4 text-[#CCFF00] group-hover:text-black" viewBox="0 0 24 24" fill="currentColor">
+						<path d="M12.004 2C6.479 2 2 6.48 2 12c0 1.89.525 3.66 1.438 5.178L2 22l4.974-1.39A9.957 9.957 0 0012.004 22C17.528 22 22 17.52 22 12c0-5.52-4.472-10-9.996-10zm5.837 14.223c-.244.686-1.42 1.309-1.983 1.393-.505.076-1.144.108-1.846-.118-.427-.137-.974-.316-1.673-.618-2.955-1.274-4.887-4.24-5.035-4.436-.148-.196-1.198-1.595-1.198-3.042 0-1.447.76-2.158 1.03-2.453.27-.294.59-.368.787-.368.196 0 .393.002.565.01.18.009.421-.069.66.505.244.587.835 2.036.908 2.184.074.148.123.321.025.518-.098.196-.148.318-.295.49-.148.173-.31.385-.443.518-.148.147-.302.308-.13.603.172.296.76 1.256 1.63 2.032 1.121 1.001 2.066 1.31 2.36 1.458.295.147.467.123.64-.074.172-.197.737-.858.934-1.152.196-.295.393-.246.66-.148.27.098 1.714.808 2.009.955.295.148.491.222.565.344.074.123.074.71-.17 1.396z"/>
+					</svg>
+				</a>
+			</div>
 
-                <!-- Right Content (Image) -->
-                <div class="relative h-[500px] w-full flex items-center justify-center z-10">
-                    <div class="w-full h-full relative animate-float flex justify-center items-center">
-                        <div class="absolute inset-0 bg-gradient-to-tr from-impulso/10 to-purple-500/10 rounded-full blur-[100px] animate-pulse"></div>
-                        <!-- Using relative path assuming file is in same folder for preview, or public path -->
-                        <img src="./public/brain-hero.png" alt="Cerebro Mecánico IA" class="relative z-10 max-w-full max-h-full object-contain drop-shadow-[0_0_50px_rgba(0,212,255,0.3)] mix-blend-lighten" />
-                    </div>
-                </div>
-            </div>
-        </section>
+		</div>
+	</nav>
 
-        <!-- SERVICES GRID -->
-        <section id="planes" class="py-24 px-6 relative">
-            <div class="container mx-auto">
-                <div class="flex flex-col md:flex-row gap-6 lg:gap-8 justify-center items-stretch">
-                    
-                    <!-- Tarjeta 1: Genesis -->
-                    <div class="flex-1 group relative p-8 rounded-2xl border border-white/5 bg-slate-900/50 backdrop-blur-md hover:bg-slate-900/80 transition-all duration-300 hover:-translate-y-2">
-                        <div class="absolute inset-0 border border-genesis/30 rounded-2xl opacity-50 group-hover:opacity-100 transition-opacity"></div>
-                        <h3 class="text-2xl font-heading font-bold text-white mb-2">Plan Génesis</h3>
-                        <p class="text-sm text-genesis font-mono mb-6">PARA STARTUPS</p>
-                        <ul class="space-y-3 text-slate-400 text-sm mb-8">
-                            <li class="flex items-center gap-2"><span class="text-genesis">▸</span> Branding Esencial</li>
-                            <li class="flex items-center gap-2"><span class="text-genesis">▸</span> Landing Page Veloz</li>
-                        </ul>
-                    </div>
+	<!-- Main Content Slot -->
+	<main class="relative z-10 w-full pt-[72px]">
+		
+		<!-- HERO SECTION (#CCFF00 AMARILLO CHILLANTE TOTAL) -->
+		<header class="pt-24 pb-20 md:pt-36 md:pb-28 px-4 sm:px-6 relative overflow-hidden bg-[#CCFF00] border-b-4 border-black">
+			
+			<!-- Halftone Dot Pattern -->
+			<div class="absolute inset-0 opacity-15 pointer-events-none" style="background-image:radial-gradient(circle, #000 2px, transparent 2px);background-size:24px 24px"></div>
 
-                    <!-- Tarjeta 2: Impulso -->
-                    <div class="flex-1 group relative p-8 rounded-2xl border border-white/5 bg-slate-900/50 backdrop-blur-md hover:bg-slate-900/80 transition-all duration-300 hover:-translate-y-2">
-                        <div class="absolute inset-0 border border-impulso/30 rounded-2xl opacity-50 group-hover:opacity-100 transition-opacity"></div>
-                        <h3 class="text-2xl font-heading font-bold text-white mb-2">Plan Impulso</h3>
-                        <p class="text-sm text-impulso font-mono mb-6">PARA GROWTH</p>
-                        <ul class="space-y-3 text-slate-400 text-sm mb-8">
-                            <li class="flex items-center gap-2"><span class="text-impulso">▸</span> Identidad Completa</li>
-                            <li class="flex items-center gap-2"><span class="text-impulso">▸</span> Web Corporativa</li>
-                        </ul>
-                    </div>
+			<div class="max-w-7xl mx-auto relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+				
+				<!-- Left Column: The Statement / Manifesto (7 Cols) -->
+				<div class="lg:col-span-7 space-y-6">
+					
+					<!-- Badge Tilted -->
+					<div class="inline-block bg-black text-[#CCFF00] px-4 py-1.5 font-mono font-bold text-xs sm:text-sm tracking-widest uppercase transform -rotate-2 border-2 border-black shadow-[4px_4px_0px_0px_rgba(255,255,255,1)]">
+						AGENCIA IRREVERENTE // STATEMENT 01
+					</div>
 
-                    <!-- Tarjeta 3: Dominio -->
-                    <div class="flex-1 group relative p-8 rounded-2xl border border-white/5 bg-brand-dark backdrop-blur-xl transition-all duration-500 hover:-translate-y-4 z-10 shadow-[0_0_50px_rgba(0,0,0,0.5)]">
-                        <div class="absolute -inset-0.5 bg-gradient-to-b from-dominio to-amber-600 rounded-2xl opacity-30 group-hover:opacity-60 blur-sm transition-opacity"></div>
-                        <div class="absolute inset-0 bg-brand-dark rounded-2xl"></div>
-                        <div class="relative z-10">
-                            <h3 class="text-3xl font-heading font-bold text-transparent bg-clip-text bg-gradient-to-r from-dominio to-amber-200">Plan Dominio</h3>
-                            <p class="text-sm text-dominio font-mono mt-1">TOTAL AUTHORITY</p>
-                            <div class="my-6 p-4 rounded-lg bg-dominio/5 border border-dominio/10">
-                                <p class="text-amber-100/80 text-sm italic">"Para quienes no compiten, sino que definen las reglas."</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+					<!-- Main Headline -->
+					<h1 class="text-5xl sm:text-7xl lg:text-8xl font-black leading-[0.92] tracking-tighter text-black uppercase">
+						SI LLEGASTE AQUÍ <br/>
+						<span class="bg-white px-3 py-1 border-4 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] text-black inline-block transform rotate-1 my-2">
+							TIENES CURIOSIDAD.
+						</span> <br/>
+						<span class="text-transparent" style="-webkit-text-stroke: 3px #000; text-stroke: 3px #000;">EL MUNDO ES VASTO.</span>
+					</h1>
 
-        <!-- SKELETON: PROCESO -->
-        <section id="proceso" class="py-24 px-6 border-b border-white/5">
-            <div class="container mx-auto">
-                <div class="mb-12 text-center">
-                    <span class="font-mono text-impulso text-sm tracking-widest">[ SYSTEM_WORKFLOW ]</span>
-                    <h2 class="text-4xl font-heading font-bold text-white mt-2">Nuestro Proceso</h2>
-                </div>
-                <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
-                    <!-- Steps 1-4 -->
-                    <div class="h-64 rounded-xl border border-dashed border-white/10 bg-white/5 flex flex-col items-center justify-center p-6 text-center">
-                        <span class="font-mono text-xs text-white/20">PHASE_01</span>
-                    </div>
-                    <div class="h-64 rounded-xl border border-dashed border-white/10 bg-white/5 flex flex-col items-center justify-center p-6 text-center">
-                        <span class="font-mono text-xs text-white/20">PHASE_02</span>
-                    </div>
-                    <div class="h-64 rounded-xl border border-dashed border-white/10 bg-white/5 flex flex-col items-center justify-center p-6 text-center">
-                        <span class="font-mono text-xs text-white/20">PHASE_03</span>
-                    </div>
-                    <div class="h-64 rounded-xl border border-dashed border-white/10 bg-white/5 flex flex-col items-center justify-center p-6 text-center">
-                        <span class="font-mono text-xs text-white/20">PHASE_04</span>
-                    </div>
-                </div>
-            </div>
-        </section>
+					<!-- Dorothy Quote / Offset Callout Box -->
+					<div class="bg-white border-4 border-black p-5 sm:p-6 shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] transform -rotate-1 max-w-xl">
+						<p class="text-xl sm:text-2xl font-black italic text-black leading-snug">
+							“Brinca al vacío, Dorothy. Háblame y veamos qué tan profundo llega el agujero del conejo.”
+						</p>
+					</div>
 
-    </main>
+					<!-- Reality Punch -->
+					<p class="text-lg sm:text-xl font-bold text-black max-w-xl leading-relaxed">
+						Sigues haciendo a mano lo que tu competencia ya automatizó. No es que no sepas vender: <strong class="underline decoration-4">estás haciendo trabajo de robot con manos de humano.</strong>
+					</p>
 
-    <!-- Modal Advisor (Simplified for Preview) -->
-    <dialog id="advisor-modal" class="backdrop:bg-black/80 bg-transparent p-0 w-full h-full max-w-full m-0 z-50">
-        <div class="fixed inset-0 flex items-center justify-center p-4">
-            <div class="relative w-full max-w-2xl bg-[#020617] border border-white/10 rounded-3xl p-10 shadow-2xl">
-                <button onclick="closeModal()" class="absolute top-6 right-6 text-white/50 hover:text-white">✕</button>
-                <h2 class="text-4xl font-heading font-bold text-white mb-6">Diagnóstico de Potencial</h2>
-                <p class="text-lg text-slate-400 mb-10">Esta es una vista previa estática. En la versión completa, aquí interactúas con la IA.</p>
-                <div class="space-y-4">
-                    <div class="h-16 w-full bg-white/5 rounded-xl border border-white/10 animate-pulse"></div>
-                    <div class="h-16 w-full bg-white/5 rounded-xl border border-white/10 animate-pulse delay-100"></div>
-                </div>
-            </div>
-        </div>
-    </dialog>
+					<!-- CTA 1 (Hero) -->
+					<div class="pt-2 flex flex-col sm:flex-row items-start sm:items-center gap-4">
+						<a 
+							href="https://wa.me/525644982624?text=Hola.%20Llegu%C3%A9%20por%20curiosidad.%20Quiero%20ver%20qu%C3%A9%20tan%20profundo%20llega%20el%20agujero%20del%20conejo."
+							target="_blank"
+							rel="noopener noreferrer"
+							class="w-full sm:w-auto bg-black text-[#CCFF00] px-8 py-5 text-xl font-black border-4 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] hover:bg-white hover:text-black hover:translate-x-1 hover:translate-y-1 hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] active:translate-x-2 active:translate-y-2 active:shadow-none transition-none flex items-center justify-center gap-3 group"
+						>
+							<span>HÁBLAME, PLATICAMOS</span>
+							<svg class="w-6 h-6 text-[#CCFF00] group-hover:text-black transition-transform group-hover:translate-x-1" viewBox="0 0 24 24" fill="currentColor">
+								<path d="M12.004 2C6.479 2 2 6.48 2 12c0 1.89.525 3.66 1.438 5.178L2 22l4.974-1.39A9.957 9.957 0 0012.004 22C17.528 22 22 17.52 22 12c0-5.52-4.472-10-9.996-10zm5.837 14.223c-.244.686-1.42 1.309-1.983 1.393-.505.076-1.144.108-1.846-.118-.427-.137-.974-.316-1.673-.618-2.955-1.274-4.887-4.24-5.035-4.436-.148-.196-1.198-1.595-1.198-3.042 0-1.447.76-2.158 1.03-2.453.27-.294.59-.368.787-.368.196 0 .393.002.565.01.18.009.421-.069.66.505.244.587.835 2.036.908 2.184.074.148.123.321.025.518-.098.196-.148.318-.295.49-.148.173-.31.385-.443.518-.148.147-.302.308-.13.603.172.296.76 1.256 1.63 2.032 1.121 1.001 2.066 1.31 2.36 1.458.295.147.467.123.64-.074.172-.197.737-.858.934-1.152.196-.295.393-.246.66-.148.27.098 1.714.808 2.009.955.295.148.491.222.565.344.074.123.074.71-.17 1.396z"/>
+							</svg>
+						</a>
+					</div>
 
-    <script>
-        const modal = document.getElementById('advisor-modal');
-        function openModal() { modal.showModal(); }
-        function closeModal() { modal.close(); }
-    </script>
+					<!-- Exclusivity Filter -->
+					<div class="inline-block bg-white text-black border-2 border-black px-3.5 py-1.5 font-mono text-xs font-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transform -rotate-1">
+						<span class="text-[#FF0055]">⚠</span> NO NOS INTERESA TENER MUCHOS CLIENTES. NOS INTERESA CONECTAR CON LOS CORRECTOS.
+					</div>
+
+				</div>
+
+				<!-- Right Column: Official Brain Asset with Cybernetic Status (5 Cols) -->
+				<div class="lg:col-span-5 flex justify-center relative py-6">
+					
+					<!-- Hard Shadow Disk -->
+					<div class="absolute w-72 h-72 sm:w-96 sm:h-96 rounded-full bg-black -bottom-3 -right-3 hidden sm:block"></div>
+
+					<!-- Brain Card Showcase Container -->
+					<div class="relative w-full max-w-sm sm:max-w-md bg-white border-4 border-black p-6 sm:p-7 shadow-[10px_10px_0px_0px_rgba(0,0,0,1)] flex flex-col items-center">
+						
+						<!-- Brain Graphic Frame -->
+						<div class="w-full relative flex justify-center items-center p-4 bg-[#F5F5F5] border-2 border-black overflow-hidden group">
+							<img 
+								src="public/cerebro.webp" 
+								alt="Cerebro Agencial Talento con Tarifa" 
+								class="w-full max-w-[260px] sm:max-w-[300px] h-auto object-contain transition-transform duration-300 group-hover:scale-105"
+							/>
+							<div class="absolute inset-0 bg-[#CCFF00] mix-blend-multiply opacity-15 pointer-events-none"></div>
+						</div>
+
+						<!-- Pink Warning Sticker Overlapping -->
+						<div class="transform -rotate-3 -mt-5 bg-[#FF0055] text-white font-mono text-xs sm:text-sm uppercase px-4 py-2 border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] font-black z-20">
+							DON'T TOUCH THE BRAIN // 100% AUTOMATED
+						</div>
+
+						<!-- Brutalist Status Ticker Inside Card -->
+						<div class="w-full mt-6 pt-4 border-t-2 border-black flex justify-between items-center text-left">
+							<div>
+								<span class="font-mono text-[10px] uppercase font-bold text-gray-600 block">CAPACIDAD MOTOR</span>
+								<p class="font-mono text-lg sm:text-xl font-black text-black">4,800 MSG/MIN</p>
+							</div>
+							<div class="transform rotate-2 bg-[#CCFF00] px-3 py-1 border-2 border-black font-mono text-[11px] font-black shadow-[3px_3px_0px_0px_#000]">
+								⚡ 24/7/365 SIN VACACIONES
+							</div>
+						</div>
+
+					</div>
+				</div>
+
+			</div>
+		</header>
+
+		<!-- ROTATED MARQUEE TICKER TAPE -->
+		<div class="bg-black text-[#CCFF00] py-4 overflow-hidden border-y-4 border-black transform rotate-1 scale-105 z-20 relative shadow-[0_10px_20px_rgba(0,0,0,0.4)] select-none">
+			<div class="whitespace-nowrap animate-marquee flex gap-8 font-heading font-black text-2xl uppercase tracking-wider">
+				<span class="flex items-center gap-4">★ SE RENTA TALENTO CON TARIFA</span>
+				<span class="flex items-center gap-4">★ EL MUNDO ES VASTO</span>
+				<span class="flex items-center gap-4">★ BRINCA AL VACÍO, DOROTHY</span>
+				<span class="flex items-center gap-4">★ TRABAJO DE ROBOT PARA ROBOTS</span>
+				<span class="flex items-center gap-4">★ COTIZACIONES EN 15 SEGUNDOS</span>
+				<span class="flex items-center gap-4">★ CERO CORTESÍA CORPORATIVA</span>
+				<span class="flex items-center gap-4">★ 100% BOT ROUTED</span>
+				<span class="flex items-center gap-4">★ SE RENTA TALENTO CON TARIFA</span>
+				<span class="flex items-center gap-4">★ EL MUNDO ES VASTO</span>
+				<span class="flex items-center gap-4">★ BRINCA AL VACÍO, DOROTHY</span>
+				<span class="flex items-center gap-4">★ TRABAJO DE ROBOT PARA ROBOTS</span>
+				<span class="flex items-center gap-4">★ COTIZACIONES EN 15 SEGUNDOS</span>
+				<span class="flex items-center gap-4">★ CERO CORTESÍA CORPORATIVA</span>
+				<span class="flex items-center gap-4">★ 100% BOT ROUTED</span>
+			</div>
+		</div>
+
+		<!-- SECTION: EL DOLOR SIN RODEOS (3 Direct Brutalist Feature Cards) -->
+		<section class="py-24 px-4 sm:px-6 bg-[#FAFAFA] border-b-4 border-black relative">
+			
+			<!-- Subtle Cross Pattern -->
+			<div class="absolute inset-0 opacity-5 pointer-events-none" style="background-image:linear-gradient(to right, #000 1px, transparent 1px), linear-gradient(to bottom, #000 1px, transparent 1px); background-size:24px 24px;"></div>
+
+			<div class="max-w-7xl mx-auto space-y-16 relative z-10">
+				
+				<div class="flex flex-col md:flex-row md:items-end justify-between gap-6">
+					<div class="max-w-3xl space-y-4">
+						<div class="inline-block bg-[#CCFF00] text-black border-2 border-black px-3.5 py-1.5 font-mono text-xs font-black transform -rotate-1 shadow-[3px_3px_0px_0px_#000]">
+							LA REALIDAD // BOTS DE IMPACTO INMEDIATO
+						</div>
+						<h2 class="text-4xl sm:text-6xl font-black text-black leading-none uppercase tracking-tight">
+							TRES COSAS QUE TUS HUMANOS <br/><span class="bg-black text-white px-2">NO DEBERÍAN ESTAR HACIENDO</span>.
+						</h2>
+					</div>
+					<div class="font-mono text-xs font-black uppercase text-gray-700 max-w-xs border-l-4 border-black pl-4">
+						[MÓDULOS DE DISRUPCIÓN DE EMBUDO COMERCIAL]
+					</div>
+				</div>
+
+				<!-- 3 Direct Brutalist Cards -->
+				<div class="grid md:grid-cols-3 gap-8">
+					
+					<!-- Card 1: Velocidad -->
+					<div class="bg-white border-4 border-black p-8 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] hover:translate-x-1 hover:translate-y-1 hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transition-all flex flex-col justify-between">
+						<div class="space-y-5">
+							<div class="flex justify-between items-center">
+								<span class="bg-black text-white font-mono text-xs px-3 py-1 uppercase font-bold">
+									01 // VELOCIDAD
+								</span>
+								<span class="bg-[#CCFF00] text-black font-mono text-xs font-black px-2.5 py-1 border-2 border-black">
+									⚡ 15 SEGUNDOS
+								</span>
+							</div>
+							<h3 class="text-2xl font-black uppercase text-black">Cotizaciones en 15 Segundos</h3>
+							<p class="font-bold text-gray-800 text-base leading-relaxed">
+								Tu prospecto pregunta a las 11:45 PM y en 15 segundos recibe una propuesta personalizada con cálculo exacto en PDF por WhatsApp. Tu competencia contesta al mediodía siguiente cuando el cliente ya olvidó su interés.
+							</p>
+						</div>
+						<div class="pt-6 mt-6 border-t-2 border-black">
+							<div class="bg-[#F0F0F0] p-3 border-2 border-black font-mono text-xs uppercase font-black flex items-center justify-between">
+								<span>Resultado Directo</span>
+								<span class="text-[#FF0055]">3.8x CIERRE EN FRÍO</span>
+							</div>
+						</div>
+					</div>
+
+					<!-- Card 2: Protagonista (Elevated Yellow) -->
+					<div class="bg-[#CCFF00] border-4 border-black p-8 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] transform md:-translate-y-4 rotate-1 hover:rotate-0 hover:translate-x-1 hover:translate-y-1 hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transition-all flex flex-col justify-between relative">
+						<!-- Top Sticker -->
+						<div class="absolute -top-4 right-4 bg-[#FF0055] text-white font-mono text-xs uppercase px-3 py-1 font-black border-2 border-black transform rotate-3 shadow-[3px_3px_0px_0px_#000]">
+							MÁS RENTABLE
+						</div>
+
+						<div class="space-y-5">
+							<div class="flex justify-between items-center">
+								<span class="bg-black text-[#CCFF00] font-mono text-xs px-3 py-1 uppercase font-black">
+									02 // PROTAGONISTA
+								</span>
+								<span class="bg-white text-black font-mono text-xs font-black px-2.5 py-1 border-2 border-black">
+									📈 +35% RECUPERADOS
+								</span>
+							</div>
+							<h3 class="text-2xl font-black uppercase text-black">Seguimiento Implacable</h3>
+							<p class="font-black text-black text-base leading-relaxed">
+								El 80% de las ventas ocurren después del quinto contacto. Tus comerciales se rinden en el segundo o se les olvida. Nuestro bot nunca se cansa ni le da pena insistir con ángulos nuevos y valor real.
+							</p>
+						</div>
+						<div class="pt-6 mt-6 border-t-2 border-black">
+							<div class="bg-white p-3 border-2 border-black font-mono text-xs uppercase font-black flex items-center justify-between">
+								<span>Estado de Leads</span>
+								<span class="text-black underline decoration-2">CERO EN EL LIMBO</span>
+							</div>
+						</div>
+					</div>
+
+					<!-- Card 3: Filtro Duro -->
+					<div class="bg-white border-4 border-black p-8 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] hover:translate-x-1 hover:translate-y-1 hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transition-all flex flex-col justify-between">
+						<div class="space-y-5">
+							<div class="flex justify-between items-center">
+								<span class="bg-black text-white font-mono text-xs px-3 py-1 uppercase font-bold">
+									03 // CALIFICACIÓN
+								</span>
+								<span class="bg-[#CCFF00] text-black font-mono text-xs font-black px-2.5 py-1 border-2 border-black">
+									🛡️ FILTRO DURO
+								</span>
+							</div>
+							<h3 class="text-2xl font-black uppercase text-black">Filtro de Curiosos</h3>
+							<p class="font-bold text-gray-800 text-base leading-relaxed">
+								Deja de regalar videollamadas a gente sin presupuesto. El filtro detecta capacidad de pago, urgencia y seriedad técnica antes de si quiera tocar tu calendario o el de tus cerradores.
+							</p>
+						</div>
+						<div class="pt-6 mt-6 border-t-2 border-black">
+							<div class="bg-[#F0F0F0] p-3 border-2 border-black font-mono text-xs uppercase font-black flex items-center justify-between">
+								<span>Calidad Calendario</span>
+								<span class="text-[#FF0055]">SOLO HIGH-TICKET</span>
+							</div>
+						</div>
+					</div>
+
+				</div>
+
+				<!-- Mid CTA 2 -->
+				<div class="border-4 border-black bg-[#CCFF00] p-8 sm:p-10 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] flex flex-col md:flex-row items-center justify-between gap-6">
+					<div class="space-y-1 text-center md:text-left">
+						<h3 class="text-2xl sm:text-3xl font-black text-black uppercase">¿Quieres ver cómo funciona en tu negocio?</h3>
+						<p class="font-bold text-black/85 text-base sm:text-lg">Sin presentaciones aburridas. Una plática directa de 10 minutos.</p>
+					</div>
+					<a 
+						href="https://wa.me/525644982624?text=Hola.%20Llegu%C3%A9%20por%20curiosidad.%20Quiero%20ver%20qu%C3%A9%20tan%20profundo%20llega%20el%20agujero%20del%20conejo."
+						target="_blank"
+						rel="noopener noreferrer"
+						class="shrink-0 bg-black text-[#CCFF00] px-8 py-4 font-black text-lg border-2 border-black shadow-[4px_4px_0px_0px_#000] hover:bg-white hover:text-black hover:translate-x-1 hover:translate-y-1 hover:shadow-none active:translate-x-2 active:translate-y-2 transition-none uppercase tracking-wider"
+					>
+						HÁBLAME, PLATICAMOS
+					</a>
+				</div>
+
+			</div>
+		</section>
+
+		<!-- SECTION: LA COHERENCIA & DOGFOODING (Black background, bold statement) -->
+		<section class="py-24 px-4 sm:px-6 bg-black text-white border-b-4 border-black relative overflow-hidden">
+			<div class="max-w-7xl mx-auto space-y-12">
+				
+				<div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+					
+					<div class="lg:col-span-8 space-y-8">
+						<!-- Terminal Status Pill -->
+						<div class="font-mono text-xs text-[#CCFF00] bg-[#111118] border-2 border-[#CCFF00] px-4 py-1.5 inline-block uppercase font-bold shadow-[4px_4px_0px_0px_#CCFF00]">
+							[SYS_STATUS: VERIFIED_IN_PRODUCTION // ZERO_HUMAN_INTERMEDIARIES]
+						</div>
+
+						<!-- Monumental Authority Headline -->
+						<h2 class="text-4xl sm:text-6xl lg:text-7xl font-black text-white leading-tight uppercase tracking-tight">
+							NO VENDEMOS LO QUE <br/>
+							<span class="text-[#CCFF00] underline decoration-[#CCFF00] decoration-8 underline-offset-8">NO USAMOS NOSOTROS</span>.
+						</h2>
+
+						<!-- Highlight Quote Box -->
+						<div class="border-l-8 border-[#CCFF00] pl-6 py-2 max-w-3xl">
+							<p class="text-gray-300 text-lg sm:text-2xl font-bold leading-relaxed">
+								“Nuestros propios bots te trajeron a esta pantalla. Operamos exactamente con los mismos motores que te instalamos. Cero llamadas en frío no deseadas, cero comerciales rogando por 5 minutos de tu tiempo.”
+							</p>
+						</div>
+
+						<!-- Brutalist Metric Blocks -->
+						<div class="grid grid-cols-1 sm:grid-cols-3 gap-6 pt-4 font-mono">
+							<div class="border-2 border-[#CCFF00] p-5 bg-[#0A0A0F] shadow-[4px_4px_0px_0px_#CCFF00]">
+								<span class="text-xs uppercase text-gray-400 block font-bold mb-1">EQUIPO COMERCIAL</span>
+								<span class="text-3xl sm:text-4xl font-black text-white block">0 HUMANOS</span>
+							</div>
+							<div class="border-2 border-[#CCFF00] p-5 bg-[#0A0A0F] shadow-[4px_4px_0px_0px_#CCFF00]">
+								<span class="text-xs uppercase text-gray-400 block font-bold mb-1">ENRUTAMIENTO</span>
+								<span class="text-3xl sm:text-4xl font-black text-white block">100% BOTS</span>
+							</div>
+							<div class="border-2 border-[#CCFF00] p-5 bg-[#0A0A0F] shadow-[4px_4px_0px_0px_#CCFF00]">
+								<span class="text-xs uppercase text-gray-400 block font-bold mb-1">VELOCIDAD SLA</span>
+								<span class="text-3xl sm:text-4xl font-black text-[#CCFF00] block">&lt; 15 SEG</span>
+							</div>
+						</div>
+					</div>
+
+					<!-- Dogfooding Visual Tag / Terminal Badge -->
+					<div class="lg:col-span-4 flex flex-col items-center justify-center text-center">
+						<div class="transform rotate-2 bg-[#FF0055] text-white p-8 border-4 border-white shadow-[8px_8px_0px_0px_#CCFF00] w-full max-w-sm space-y-4">
+							<div class="text-5xl">⚡</div>
+							<h3 class="text-2xl font-black uppercase leading-tight">
+								DOGFOODING OBSESIVO
+							</h3>
+							<p class="font-mono text-xs uppercase font-bold text-white/95 leading-relaxed">
+								Pruébalo en vivo en menos de 2 minutos. Si no te convence cómo te atendemos, te quedas con la arquitectura.
+							</p>
+							<a 
+								href="https://wa.me/525644982624?text=Hola.%20Llegu%C3%A9%20por%20curiosidad.%20Quiero%20ver%20qu%C3%A9%20tan%20profundo%20llega%20el%20agujero%20del%20conejo."
+								target="_blank"
+								rel="noopener noreferrer"
+								class="block w-full bg-[#CCFF00] text-black font-black text-base uppercase py-3.5 border-2 border-black shadow-[4px_4px_0px_0px_#000] hover:bg-white transition-none active:translate-x-1 active:translate-y-1 active:shadow-none"
+							>
+								TESTEAR BOT AHORA
+							</a>
+						</div>
+					</div>
+
+				</div>
+
+			</div>
+		</section>
+
+		<!-- SECTION: CIERRE FINAL (#CCFF00 TOTAL, MASIVO) -->
+		<section class="py-28 px-4 sm:px-6 bg-[#CCFF00] text-center relative overflow-hidden">
+			
+			<div class="max-w-4xl mx-auto space-y-8 relative z-10">
+				
+				<div class="inline-block bg-black text-[#CCFF00] px-4 py-1.5 font-mono font-bold text-xs uppercase transform -rotate-2 border-2 border-black shadow-[4px_4px_0px_0px_#FFF]">
+					ACCESO INMEDIATO // SIN FILTROS NI AGENDAS ETERNAS
+				</div>
+
+				<h2 class="text-5xl sm:text-7xl lg:text-8xl font-black text-black leading-none uppercase tracking-tighter">
+					BRINCA AL VACÍO. <br/>
+					<span class="bg-white px-3 py-1 border-4 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] text-black inline-block transform rotate-1 my-3">
+						HÁBLAME, PLATICAMOS.
+					</span>
+				</h2>
+
+				<p class="text-lg sm:text-2xl font-black text-black max-w-2xl mx-auto leading-relaxed">
+					Dale click al botón verde radioactivo. Te va a responder una máquina que entiende mejor de tus cuellos de botella comerciales que cualquier consultor con traje alquilado.
+				</p>
+
+				<!-- CTA 3 (Cierre Gigante) -->
+				<div class="pt-4">
+					<a 
+						href="https://wa.me/525644982624?text=Hola.%20Llegu%C3%A9%20por%20curiosidad.%20Quiero%20ver%20qu%C3%A9%20tan%20profundo%20llega%20el%20agujero%20del%20conejo."
+						target="_blank"
+						rel="noopener noreferrer"
+						class="inline-flex items-center gap-4 bg-black text-[#CCFF00] hover:bg-white hover:text-black px-8 sm:px-12 py-6 text-xl sm:text-3xl font-black border-4 border-black shadow-[10px_10px_0px_0px_rgba(0,0,0,1)] hover:translate-x-1 hover:translate-y-1 hover:shadow-[5px_5px_0px_0px_rgba(0,0,0,1)] active:translate-x-2 active:translate-y-2 active:shadow-none transition-none uppercase tracking-tight group"
+					>
+						<span>HÁBLAME, PLATICAMOS</span>
+						<svg class="w-8 h-8 text-[#CCFF00] group-hover:text-black group-hover:rotate-45 transition-transform" viewBox="0 0 24 24" fill="currentColor">
+							<path d="M12.004 2C6.479 2 2 6.48 2 12c0 1.89.525 3.66 1.438 5.178L2 22l4.974-1.39A9.957 9.957 0 0012.004 22C17.528 22 22 17.52 22 12c0-5.52-4.472-10-9.996-10zm5.837 14.223c-.244.686-1.42 1.309-1.983 1.393-.505.076-1.144.108-1.846-.118-.427-.137-.974-.316-1.673-.618-2.955-1.274-4.887-4.24-5.035-4.436-.148-.196-1.198-1.595-1.198-3.042 0-1.447.76-2.158 1.03-2.453.27-.294.59-.368.787-.368.196 0 .393.002.565.01.18.009.421-.069.66.505.244.587.835 2.036.908 2.184.074.148.123.321.025.518-.098.196-.148.318-.295.49-.148.173-.31.385-.443.518-.148.147-.302.308-.13.603.172.296.76 1.256 1.63 2.032 1.121 1.001 2.066 1.31 2.36 1.458.295.147.467.123.64-.074.172-.197.737-.858.934-1.152.196-.295.393-.246.66-.148.27.098 1.714.808 2.009.955.295.148.491.222.565.344.074.123.074.71-.17 1.396z"/>
+						</svg>
+					</a>
+				</div>
+
+				<!-- Reassurance Brutalist Ribbon -->
+				<div class="pt-6 flex flex-wrap justify-center items-center gap-3 sm:gap-4 font-mono text-xs sm:text-sm uppercase font-black text-black">
+					<span class="bg-white px-3 py-1.5 border-2 border-black shadow-[3px_3px_0px_0px_#000]">
+						✓ Sin presentaciones de 40 diapositivas
+					</span>
+					<span class="bg-white px-3 py-1.5 border-2 border-black shadow-[3px_3px_0px_0px_#000]">
+						✓ Te decimos la verdad en 10 minutos
+					</span>
+					<span class="bg-white px-3 py-1.5 border-2 border-black shadow-[3px_3px_0px_0px_#000]">
+						✓ Si no te conviene te lo decimos de frente
+					</span>
+				</div>
+
+			</div>
+		</section>
+
+	</main>
+
+	<!-- Footer Neobrutalista Oficial (#CCFF00 con borde negro de 4px) -->
+	<footer class="bg-[#CCFF00] border-t-4 border-black py-12 px-6">
+		<div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
+			<div class="flex items-center gap-3">
+				<div class="w-8 h-8 bg-black p-1">
+					<img src="public/icon.svg" alt="Talento con Tarifa" class="w-full h-full object-contain" />
+				</div>
+				<span class="font-heading font-black text-xl tracking-tight text-black">
+					TALENTO CON TARIFA © 2026
+				</span>
+			</div>
+			<p class="font-mono font-bold text-sm text-black">
+				NO BUSCAMOS VOLUMEN. CONECTAMOS CON LOS CORRECTOS.
+			</p>
+		</div>
+	</footer>
+
+	<!-- Floating Brutalist WhatsApp CTA -->
+	<div class="fixed bottom-6 right-6 z-50">
+		<a 
+			href="https://wa.me/525644982624?text=Hola.%20Llegu%C3%A9%20por%20curiosidad.%20Quiero%20ver%20qu%C3%A9%20tan%20profundo%20llega%20el%20agujero%20del%20conejo."
+			target="_blank"
+			rel="noopener noreferrer"
+			class="group flex items-center gap-3 bg-black text-[#CCFF00] px-5 py-3.5 font-heading font-black text-sm uppercase tracking-wider border-4 border-black shadow-[6px_6px_0px_0px_#000] hover:bg-[#CCFF00] hover:text-black hover:shadow-none hover:translate-x-[2px] hover:translate-y-[2px] active:translate-x-1 active:translate-y-1 transition-none"
+			aria-label="Abrir WhatsApp"
+		>
+			<span class="w-3 h-3 bg-[#CCFF00] group-hover:bg-black rounded-full animate-ping"></span>
+			<span>HÁBLAME, PLATICAMOS</span>
+		</a>
+	</div>
+
 </body>
 </html>

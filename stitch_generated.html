@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+
+<html class="scroll-smooth" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Talento con Tarifa | Agencia Irreverente</title>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700;800;900&amp;family=Space+Mono:ital,wght@0,400;0,700;1,700&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Theme Configuration verbatim from system -->
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "inverse-primary": "#abd600",
+            "secondary-fixed": "#ffdadb",
+            "surface-container-lowest": "#ffffff",
+            "surface-container-highest": "#e2e2e2",
+            "inverse-surface": "#303030",
+            "secondary": "#b9003b",
+            "on-error": "#ffffff",
+            "tertiary": "#b12d00",
+            "on-tertiary-container": "#c73300",
+            "secondary-fixed-dim": "#ffb2b8",
+            "primary-fixed": "#c3f400",
+            "surface": "#f9f9f9",
+            "primary-fixed-dim": "#abd600",
+            "on-secondary": "#ffffff",
+            "on-tertiary": "#ffffff",
+            "primary": "#506600",
+            "surface-tint": "#506600",
+            "surface-variant": "#e2e2e2",
+            "tertiary-fixed": "#ffdbd1",
+            "surface-bright": "#f9f9f9",
+            "tertiary-fixed-dim": "#ffb5a1",
+            "on-surface-variant": "#444933",
+            "on-tertiary-fixed": "#3b0900",
+            "surface-container": "#eeeeee",
+            "on-secondary-container": "#fffbff",
+            "on-primary": "#ffffff",
+            "on-primary-fixed": "#161e00",
+            "secondary-container": "#e7004c",
+            "on-background": "#1b1b1b",
+            "error-container": "#ffdad6",
+            "error": "#ba1a1a",
+            "inverse-on-surface": "#f1f1f1",
+            "outline-variant": "#c4c9ac",
+            "surface-dim": "#dadada",
+            "surface-container-low": "#f3f3f3",
+            "on-tertiary-fixed-variant": "#882000",
+            "background": "#f9f9f9",
+            "on-error-container": "#93000a",
+            "on-primary-fixed-variant": "#3c4d00",
+            "on-secondary-fixed": "#40000f",
+            "surface-container-high": "#e8e8e8",
+            "on-surface": "#1b1b1b",
+            "on-primary-container": "#5b7300",
+            "primary-container": "#ccff00",
+            "tertiary-container": "#ffe8e2",
+            "on-secondary-fixed-variant": "#91002d",
+            "outline": "#747a60"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "space-xl": "3.5rem",
+            "space-xs": "0.375rem",
+            "gutter-mobile": "1rem",
+            "space-md": "1.25rem",
+            "gutter": "1.5rem",
+            "space-sm": "0.75rem",
+            "margin-mobile": "1.25rem",
+            "space-lg": "2rem",
+            "margin": "3rem"
+          },
+          "fontFamily": {
+            "headline-lg": ["Space Grotesk"],
+            "display-mobile": ["Space Grotesk"],
+            "headline-lg-mobile": ["Space Grotesk"],
+            "label-md": ["Space Mono"],
+            "headline-md": ["Space Grotesk"],
+            "headline-sm": ["Space Grotesk"],
+            "label-sm": ["Space Mono"],
+            "label-lg": ["Space Mono"],
+            "body-md": ["Space Grotesk"],
+            "body-lg": ["Space Grotesk"],
+            "display": ["Space Grotesk"]
+          },
+          "fontSize": {
+            "headline-lg": ["48px", { "lineHeight": "52px", "letterSpacing": "-0.03em", "fontWeight": "700" }],
+            "display-mobile": ["44px", { "lineHeight": "48px", "letterSpacing": "-0.03em", "fontWeight": "800" }],
+            "headline-lg-mobile": ["32px", { "lineHeight": "36px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+            "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.08em", "fontWeight": "700" }],
+            "headline-md": ["32px", { "lineHeight": "38px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+            "headline-sm": ["24px", { "lineHeight": "30px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+            "label-sm": ["10px", { "lineHeight": "14px", "letterSpacing": "0.1em", "fontWeight": "700" }],
+            "label-lg": ["14px", { "lineHeight": "18px", "letterSpacing": "0.05em", "fontWeight": "700" }],
+            "body-md": ["16px", { "lineHeight": "24px", "letterSpacing": "0em", "fontWeight": "500" }],
+            "body-lg": ["18px", { "lineHeight": "26px", "letterSpacing": "-0.01em", "fontWeight": "500" }],
+            "display": ["80px", { "lineHeight": "84px", "letterSpacing": "-0.04em", "fontWeight": "800" }]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-family: 'Material Symbols Outlined';
+      font-weight: normal;
+      font-style: normal;
+      font-size: 24px;
+      line-height: 1;
+      letter-spacing: normal;
+      text-transform: none;
+      display: inline-block;
+      white-space: nowrap;
+      word-wrap: normal;
+      direction: ltr;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    @keyframes marquee {
+      0% { transform: translateX(0%); }
+      100% { transform: translateX(-50%); }
+    }
+    .animate-marquee {
+      display: flex;
+      width: 200%;
+      animation: marquee 16s linear infinite;
+    }
+    .animate-marquee:hover {
+      animation-play-state: paused;
+    }
+
+    /* Tactile brutalist patterns */
+    .bg-halftone-pattern {
+      background-image: radial-gradient(#1b1b1b 1.5px, transparent 1.5px);
+      background-size: 16px 16px;
+    }
+    .bg-cross-pattern {
+      background-size: 24px 24px;
+      background-image: 
+        linear-gradient(to right, rgba(27, 27, 27, 0.08) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(27, 27, 27, 0.08) 1px, transparent 1px);
+    }
+  </style>
+</head>
+<body class="bg-background text-on-background font-body-md antialiased selection:bg-on-background selection:text-primary-container overflow-x-hidden">
+<!-- ========================================================================= -->
+<!-- 1. SHARED COMPONENT: TopNavBar                                             -->
+<!-- ========================================================================= -->
+<header class="sticky top-0 z-50 bg-primary-container border-b-4 border-on-background shadow-[0_4px_0_0_#1b1b1b]">
+<div class="w-full px-6 py-4 flex justify-between items-center max-w-7xl mx-auto">
+<!-- Brand Logo / Badge -->
+<a class="font-headline-sm text-headline-sm uppercase font-black text-surface-container-lowest bg-on-background px-3 py-1 border-2 border-on-background -rotate-2 inline-flex items-center gap-2 shadow-[3px_3px_0px_0px_#ffffff] hover:rotate-0 transition-transform" href="#">
+<span class="material-symbols-outlined text-primary-container" data-icon="bolt">bolt</span>
+<span>Talento con Tarifa | Agencia Irreverente</span>
+</a>
+<!-- Desktop Navigation Links from JSON -->
+<nav class="hidden md:flex items-center gap-8 font-label-lg text-label-lg">
+<a class="text-on-background font-black underline decoration-4 underline-offset-4" href="#manifiesto">Manifiesto</a>
+<a class="text-on-background font-bold hover:underline" href="#servicios">Servicios</a>
+<a class="text-on-background font-bold hover:underline" href="#resultados">Resultados</a>
+<a class="text-on-background font-bold hover:underline" href="#tarifas">Tarifas</a>
+</nav>
+<!-- Trailing Action Button -->
+<div class="flex items-center gap-3">
+<a class="font-label-lg text-label-lg uppercase bg-on-background text-primary-container font-black px-6 py-2.5 border-2 border-on-background shadow-[4px_4px_0px_0px_#1b1b1b] hover:bg-surface-container-lowest hover:text-on-background transition-none active:translate-x-1 active:translate-y-1 active:shadow-none inline-flex items-center gap-2" href="#contacto">
+<span>HÁBLAME, PLATICAMOS</span>
+<span class="material-symbols-outlined text-sm font-black" data-icon="bolt">bolt</span>
+</a>
+</div>
+</div>
+</header>
+<main>
+<!-- ========================================================================= -->
+<!-- 2. HERO SECTION: Statement 01 & Cybernetic Psyche Asset                    -->
+<!-- ========================================================================= -->
+<section class="relative bg-primary-container border-b-4 border-on-background overflow-hidden py-16 lg:py-24" id="manifiesto">
+<!-- Halftone overlay texture -->
+<div class="absolute inset-0 bg-halftone-pattern opacity-15 pointer-events-none"></div>
+<div class="relative max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+<!-- Left Hero Column (7 Cols ~ 60%) -->
+<div class="lg:col-span-7 flex flex-col items-start z-10">
+<!-- Category Sticker Badge -->
+<div class="-rotate-2 bg-on-background text-primary-container font-label-md text-label-md uppercase px-4 py-1.5 border-2 border-on-background font-bold tracking-widest inline-block mb-6 shadow-[3px_3px_0px_0px_#ffffff]">
+            AGENCIA IRREVERENTE // STATEMENT 01
+          </div>
+<!-- Chunky Monumental Title -->
+<h1 class="font-headline-lg text-headline-lg lg:font-display lg:text-display uppercase font-black text-on-background tracking-tight leading-[0.95] mb-6">
+            SI LLEGASTE AQUÍ TIENES CURIOSIDAD. <span class="bg-surface-container-lowest px-2 py-0.5 border-4 border-on-background inline-block rotate-1 shadow-[6px_6px_0px_0px_#1b1b1b]">EL MUNDO ES VASTO.</span>
+</h1>
+<!-- Offset Quote Callout Box -->
+<div class="w-full bg-surface-container-lowest border-4 border-on-background p-6 shadow-[6px_6px_0px_0px_#1b1b1b] rotate-1 my-4">
+<p class="font-headline-sm text-headline-sm font-black italic text-on-background">
+              “Brinca al vacío, Dorothy. Háblame y veamos qué tan profundo llega el agujero del conejo.”
+            </p>
+</div>
+<!-- Brutal Punchy Paragraph -->
+<p class="font-body-lg text-body-lg font-bold text-on-background mt-4 mb-8 max-w-2xl leading-relaxed">
+            Sigues haciendo a mano lo que tu competencia ya automatizó. No es que no sepas vender: estás haciendo trabajo de robot con manos de humano. Cobramos caro porque te quitamos la piedra de la espalda.
+          </p>
+<!-- Action Cluster -->
+<div class="flex flex-col sm:flex-row sm:items-center gap-4 w-full sm:w-auto">
+<a class="bg-on-background text-primary-container font-headline-sm text-headline-sm uppercase font-black px-8 py-5 border-4 border-on-background shadow-[8px_8px_0px_0px_#1b1b1b] hover:bg-surface-container-lowest hover:text-on-background hover:translate-x-1 hover:translate-y-1 hover:shadow-[4px_4px_0px_0px_#1b1b1b] active:translate-x-2 active:translate-y-2 active:shadow-none inline-flex items-center justify-center gap-3 transition-none" href="#contacto">
+<span>HÁBLAME, PLATICAMOS</span>
+<span class="material-symbols-outlined text-3xl font-black" data-icon="bolt">bolt</span>
+</a>
+</div>
+<!-- Sub-sticker warning note -->
+<div class="mt-4 -rotate-1 bg-surface-container-lowest text-on-background font-label-md text-label-md px-4 py-2 border-2 border-on-background shadow-[4px_4px_0px_0px_#1b1b1b]">
+<span class="text-tertiary font-black">⚠</span> NO NOS INTERESA TENER MUCHOS CLIENTES. NOS INTERESA CONECTAR CON LOS CORRECTOS.
+          </div>
+</div>
+<!-- Right Hero Column (5 Cols ~ 40%) Illustration Composition -->
+<div class="lg:col-span-5 flex justify-center items-center relative py-6">
+<!-- Background Hard Shadow Disc -->
+<div class="absolute w-72 h-72 sm:w-96 sm:h-96 rounded-full bg-on-background -bottom-2 -right-2"></div>
+<!-- Cybernetic Brain Showcase Container -->
+<div class="relative w-80 sm:w-[420px] bg-surface-container-lowest border-4 border-on-background p-6 shadow-[10px_10px_0px_0px_#1b1b1b] flex flex-col items-center">
+<!-- Graphic Image Asset Provided in Prompt Input -->
+<div class="w-full relative flex justify-center items-center p-2 bg-surface-container-low border-2 border-on-background">
+<img alt="Cybernetic Psyche illustration of a robotic mechanical brain with glowing green wiring, metallic skull cortex plates, and visible turning gears." class="w-full max-w-[340px] h-auto object-contain filter drop-shadow-[0_8px_0_rgba(0,0,0,1)] hover:scale-105 transition-transform duration-200" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCc-Ezt-hf95ylqOlFARzxqT6oA5XC5fw0fqpZGp_JZZ3ma1BtNQnFoShX_9ZUIyEcNW6PsfwBcRSU1FKEC0UGymWdstJV1VmfWn1wHxEtR7zaSPBvMEpPfSQm6Vy0YUKCi1FAFcdaVqpMaAmqjaskAF6Gcx3SgHH_oAMs17XMnIRbLAniFlPFBED7O8L5w2GrKOuLP-_npl8I6Do1AqLUyqzCCl-w7DQW9YuIpQ6i0ppYtiurMiI2KQgNRPnE-suQZPy9C4inIJ5iD"/>
+</div>
+<!-- Overlapping Pink Warning Sticker -->
+<div class="-rotate-6 -mt-5 bg-secondary-container text-surface-container-lowest font-label-md text-label-md uppercase px-4 py-2 border-2 border-on-background shadow-[4px_4px_0px_0px_#1b1b1b] font-black z-20">
+              DON'T TOUCH THE BRAIN // 100% AUTOMATED
+            </div>
+<!-- Brutalist Status Ticker Inside Card -->
+<div class="w-full mt-6 pt-4 border-t-2 border-on-background flex justify-between items-center text-left">
+<div>
+<span class="font-label-sm text-label-sm uppercase font-bold text-outline">CAPACIDAD MOTOR</span>
+<p class="font-headline-sm text-headline-sm font-black text-on-background">4,800 MSG/MIN</p>
+</div>
+<div class="rotate-3 bg-primary-container px-3 py-1 border-2 border-on-background font-label-sm text-label-sm font-black shadow-[3px_3px_0px_0px_#1b1b1b]">
+                24/7/365 SIN VACACIONES
+              </div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- ========================================================================= -->
+<!-- 3. ROTATED BRUTALIST MARQUEE TICKER                                        -->
+<!-- ========================================================================= -->
+<section class="bg-on-background border-b-4 border-on-background py-4 overflow-hidden select-none">
+<div class="animate-marquee whitespace-nowrap font-headline-md text-headline-md text-primary-container uppercase font-black tracking-wider flex items-center gap-8">
+<span>★ SE RENTA TALENTO CON TARIFA</span>
+<span>★ EL MUNDO ES VASTO</span>
+<span>★ BRINCA AL VACÍO, DOROTHY</span>
+<span>★ TRABAJO DE ROBOT PARA ROBOTS</span>
+<span>★ CERO CORTESÍA CORPORATIVA</span>
+<span>★ COTIZACIONES EN 15 SEGUNDOS</span>
+<span>★ 100% BOT ROUTED</span>
+<span>★ SE RENTA TALENTO CON TARIFA</span>
+<span>★ EL MUNDO ES VASTO</span>
+<span>★ BRINCA AL VACÍO, DOROTHY</span>
+<span>★ TRABAJO DE ROBOT PARA ROBOTS</span>
+<span>★ CERO CORTESÍA CORPORATIVA</span>
+<span>★ COTIZACIONES EN 15 SEGUNDOS</span>
+<span>★ 100% BOT ROUTED</span>
+</div>
+</section>
+<!-- ========================================================================= -->
+<!-- 4. REALITY GRID SECTION: 3 Brutalist Feature Cards                         -->
+<!-- ========================================================================= -->
+<section class="py-20 lg:py-28 bg-surface-container-lowest bg-cross-pattern border-b-4 border-on-background relative" id="servicios">
+<div class="max-w-7xl mx-auto px-6">
+<!-- Section Header -->
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-16">
+<div>
+<div class="inline-block bg-primary-container text-on-background font-label-md text-label-md px-3.5 py-1.5 border-2 border-on-background font-black tracking-widest uppercase mb-4 shadow-[3px_3px_0px_0px_#1b1b1b] -rotate-1">
+              LA REALIDAD // BOTS DE IMPACTO INMEDIATO
+            </div>
+<h2 class="font-headline-lg text-headline-lg uppercase font-black text-on-background tracking-tight max-w-3xl">
+              TRES COSAS QUE TUS HUMANOS NO DEBERÍAN ESTAR HACIENDO.
+            </h2>
+</div>
+<div class="font-label-lg text-label-lg uppercase font-bold text-on-surface-variant max-w-xs border-l-4 border-on-background pl-4">
+            [MÓDULOS DE DISRUPCIÓN DE EMBUDO COMERCIAL]
+          </div>
+</div>
+<!-- 3-Column Bento/Brutalist Card Grid -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8" id="resultados">
+<!-- Card 1: Velocidad Absoluta -->
+<div class="bg-surface-container-lowest border-4 border-on-background p-8 shadow-[8px_8px_0px_0px_#1b1b1b] flex flex-col justify-between hover:translate-x-1 hover:translate-y-1 hover:shadow-[4px_4px_0px_0px_#1b1b1b] transition-all">
+<div>
+<div class="flex justify-between items-center mb-6">
+<span class="bg-on-background text-surface-container-lowest font-label-md text-label-md px-3 py-1 uppercase font-bold">
+                  01 // VELOCIDAD
+                </span>
+<span class="bg-primary-container text-on-background font-label-sm text-label-sm font-black px-2.5 py-1 border-2 border-on-background">
+                  ⚡ 15 SEGUNDOS
+                </span>
+</div>
+<h3 class="font-headline-md text-headline-md uppercase font-black text-on-background mb-4">
+                Cotizaciones en 15 Segundos
+              </h3>
+<p class="font-body-md text-body-md text-on-surface font-medium leading-relaxed mb-6">
+                Tu prospecto pide precio a las 11 PM y en 15 segundos recibe una propuesta personalizada con cálculo exacto en PDF por WhatsApp. Tu competencia contesta al mediodía siguiente cuando el cliente ya olvidó su interés.
+              </p>
+</div>
+<div class="pt-6 border-t-2 border-on-background">
+<div class="bg-surface-container-high p-3 border-2 border-on-background font-label-sm text-label-sm uppercase font-black flex items-center justify-between">
+<span>Resultado Directo</span>
+<span class="text-tertiary">3.8x CIERRE EN FRÍO</span>
+</div>
+</div>
+</div>
+<!-- Card 2: Electric Hero Card (Tilted 1deg) -->
+<div class="bg-primary-container border-4 border-on-background p-8 shadow-[8px_8px_0px_0px_#1b1b1b] rotate-1 flex flex-col justify-between hover:rotate-0 hover:translate-x-1 hover:translate-y-1 hover:shadow-[4px_4px_0px_0px_#1b1b1b] transition-all relative">
+<!-- Sticker Tag -->
+<div class="absolute -top-4 right-4 bg-secondary-container text-surface-container-lowest font-label-sm text-label-sm uppercase px-3 py-1 font-black border-2 border-on-background rotate-3 shadow-[3px_3px_0px_0px_#1b1b1b]">
+              MÁS RENTABLE
+            </div>
+<div>
+<div class="flex justify-between items-center mb-6">
+<span class="bg-on-background text-primary-container font-label-md text-label-md px-3 py-1 uppercase font-black">
+                  02 // PROTAGONISTA
+                </span>
+<span class="bg-surface-container-lowest text-on-background font-label-sm text-label-sm font-black px-2.5 py-1 border-2 border-on-background">
+                  📈 +35% RECUPERADOS
+                </span>
+</div>
+<h3 class="font-headline-md text-headline-md uppercase font-black text-on-background mb-4">
+                Seguimiento Implacable
+              </h3>
+<p class="font-body-md text-body-md text-on-background font-bold leading-relaxed mb-6">
+                El 80% de las ventas ocurren después del quinto contacto. Tus comerciales se rinden en el segundo. Nuestro bot nunca se cansa ni le da pena insistir con ángulos nuevos y valor real.
+              </p>
+</div>
+<div class="pt-6 border-t-2 border-on-background">
+<div class="bg-surface-container-lowest p-3 border-2 border-on-background font-label-sm text-label-sm uppercase font-black flex items-center justify-between">
+<span>Estado de Leads</span>
+<span class="text-on-background underline decoration-2">CERO EN EL LIMBO</span>
+</div>
+</div>
+</div>
+<!-- Card 3: Calificación Dura -->
+<div class="bg-surface-container-lowest border-4 border-on-background p-8 shadow-[8px_8px_0px_0px_#1b1b1b] flex flex-col justify-between hover:translate-x-1 hover:translate-y-1 hover:shadow-[4px_4px_0px_0px_#1b1b1b] transition-all">
+<div>
+<div class="flex justify-between items-center mb-6">
+<span class="bg-on-background text-surface-container-lowest font-label-md text-label-md px-3 py-1 uppercase font-bold">
+                  03 // CALIFICACIÓN
+                </span>
+<span class="bg-primary-container text-on-background font-label-sm text-label-sm font-black px-2.5 py-1 border-2 border-on-background">
+                  🛡️ FILTRO DURO
+                </span>
+</div>
+<h3 class="font-headline-md text-headline-md uppercase font-black text-on-background mb-4">
+                Filtro de Curiosos
+              </h3>
+<p class="font-body-md text-body-md text-on-surface font-medium leading-relaxed mb-6">
+                Deja de regalar videollamadas a gente sin presupuesto. El filtro detecta capacidad de pago, urgencia y seriedad técnica antes de si quiera tocar tu calendario o el de tus cerradores.
+              </p>
+</div>
+<div class="pt-6 border-t-2 border-on-background">
+<div class="bg-surface-container-high p-3 border-2 border-on-background font-label-sm text-label-sm uppercase font-black flex items-center justify-between">
+<span>Calidad Calendario</span>
+<span class="text-tertiary font-black">SOLO HIGH-TICKET</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- ========================================================================= -->
+<!-- 5. COHERENCE & AUTHORITY SECTION: Pitch Black Dogfooding Terminal          -->
+<!-- ========================================================================= -->
+<section class="bg-on-background text-surface-container-lowest py-20 lg:py-28 border-b-4 border-on-background relative overflow-hidden" id="tarifas">
+<div class="max-w-7xl mx-auto px-6">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+<div class="lg:col-span-8">
+<!-- Terminal Status Pill -->
+<div class="font-label-md text-label-md text-primary-container bg-inverse-surface border-2 border-primary-container px-3.5 py-1 inline-block uppercase font-bold mb-6">
+              [SYS_STATUS: VERIFIED_IN_PRODUCTION // ZERO_HUMAN_INTERMEDIARIES]
+            </div>
+<!-- Monumental Authority Headline -->
+<h2 class="font-headline-lg text-headline-lg lg:font-display lg:text-display uppercase font-black text-surface-container-lowest tracking-tight mb-8">
+              NO VENDEMOS LO QUE <span class="text-primary-container underline decoration-primary-container decoration-8 underline-offset-8">NO USAMOS</span> NOSOTROS.
+            </h2>
+<!-- Highlight Quote Box -->
+<div class="border-l-8 border-primary-container pl-6 py-2 mb-10 max-w-3xl">
+<p class="font-headline-sm text-headline-sm text-surface-dim font-bold italic">
+                “Nuestros propios bots te trajeron a esta pantalla. Operamos exactamente con los mismos motores que te instalamos. Cero llamadas en frío no deseadas, cero comerciales rogando por '5 minutos de tu tiempo'.”
+              </p>
+</div>
+<!-- Brutalist Metric Blocks -->
+<div class="grid grid-cols-1 sm:grid-cols-3 gap-6 pt-4">
+<div class="border-2 border-primary-container p-4 bg-inverse-surface shadow-[4px_4px_0px_0px_#ccff00]">
+<span class="font-label-sm text-label-sm text-primary-container block font-bold mb-1">EQUIPO COMERCIAL</span>
+<span class="font-headline-md text-headline-md font-black text-surface-container-lowest">0 HUMANOS</span>
+</div>
+<div class="border-2 border-primary-container p-4 bg-inverse-surface shadow-[4px_4px_0px_0px_#ccff00]">
+<span class="font-label-sm text-label-sm text-primary-container block font-bold mb-1">ENRUTAMIENTO</span>
+<span class="font-headline-md text-headline-md font-black text-surface-container-lowest">100% BOTS</span>
+</div>
+<div class="border-2 border-primary-container p-4 bg-inverse-surface shadow-[4px_4px_0px_0px_#ccff00]">
+<span class="font-label-sm text-label-sm text-primary-container block font-bold mb-1">VELOCIDAD SLA</span>
+<span class="font-headline-md text-headline-md font-black text-surface-container-lowest">&lt; 30 SEG</span>
+</div>
+</div>
+</div>
+<!-- Dogfooding Visual Tag / Terminal Badge -->
+<div class="lg:col-span-4 flex flex-col items-center justify-center text-center">
+<div class="rotate-3 bg-secondary-container text-surface-container-lowest p-8 border-4 border-surface-container-lowest shadow-[8px_8px_0px_0px_#ccff00] w-full max-w-sm">
+<span class="material-symbols-outlined text-6xl mb-3" data-icon="bolt">bolt</span>
+<h3 class="font-headline-sm text-headline-sm uppercase font-black leading-tight mb-3">
+                DOGFOODING OBSESIVO
+              </h3>
+<p class="font-label-md text-label-md uppercase font-bold text-surface-container-lowest mb-6">
+                Pruébalo en vivo en menos de 2 minutos. Si no te convence, te quedas con la arquitectura.
+              </p>
+<a class="block w-full bg-primary-container text-on-background font-headline-sm text-headline-sm uppercase font-black py-3 border-2 border-on-background shadow-[4px_4px_0px_0px_#000] hover:bg-surface-container-lowest transition-none" href="#contacto">
+                TESTEAR BOT AHORA
+              </a>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- ========================================================================= -->
+<!-- 6. GIANT FINAL CTA SECTION: High-Voltage Conversion Portal                -->
+<!-- ========================================================================= -->
+<section class="py-24 lg:py-32 bg-primary-container border-b-4 border-on-background text-on-background relative text-center" id="contacto">
+<div class="max-w-5xl mx-auto px-6 flex flex-col items-center">
+<!-- Big Sub-badge -->
+<div class="-rotate-2 bg-on-background text-primary-container font-label-md text-label-md uppercase px-4 py-1.5 border-2 border-on-background font-black tracking-widest inline-block mb-6 shadow-[4px_4px_0px_0px_#ffffff]">
+          ACCESO INMEDIATO // SIN FILTROS NI AGENDAS ETERNAS
+        </div>
+<!-- Huge Attention-Grabbing Headline -->
+<h2 class="font-headline-lg text-headline-lg lg:font-display lg:text-display uppercase font-black tracking-tight leading-[0.9] mb-8">
+          BRINCA AL VACÍO.<br/>HÁBLAME, PLATICAMOS.
+        </h2>
+<!-- Subtitle description -->
+<p class="font-body-lg text-body-lg font-bold max-w-2xl mb-10 text-on-background">
+          Dale click al botón verde radioactivo. Te va a responder una máquina que entiende mejor de tus cuellos de botella comerciales que cualquier consultor con traje alquilado.
+        </p>
+<!-- Massive Action CTA Button -->
+<a class="bg-on-background text-primary-container font-headline-md text-headline-md uppercase font-black px-10 sm:px-14 py-6 border-4 border-on-background shadow-[10px_10px_0px_0px_#1b1b1b] hover:bg-surface-container-lowest hover:text-on-background hover:translate-x-1 hover:translate-y-1 hover:shadow-[5px_5px_0px_0px_#1b1b1b] active:translate-x-2 active:translate-y-2 active:shadow-none inline-flex items-center gap-4 transition-none group" href="https://wa.me/?text=Hola%2C%20vengo%20de%20la%20landing%20de%20Talento%20con%20Tarifa.%20Quiero%20ver%20el%20bot%20en%20acci%C3%B3n." rel="noopener noreferrer" target="_blank">
+<span>ABRIR CONVERSACIÓN EN WHATSAPP</span>
+<span class="material-symbols-outlined text-4xl group-hover:rotate-45 transition-transform" data-icon="bolt">bolt</span>
+</a>
+<!-- Reassurance Brutalist Bullet Ribbon -->
+<div class="mt-12 flex flex-wrap justify-center items-center gap-4 font-label-sm text-label-sm uppercase font-bold text-on-background">
+<span class="bg-surface-container-lowest px-3 py-1.5 border-2 border-on-background shadow-[3px_3px_0px_0px_#1b1b1b]">
+            ✓ Sin presentaciones de 40 diapositivas
+          </span>
+<span class="bg-surface-container-lowest px-3 py-1.5 border-2 border-on-background shadow-[3px_3px_0px_0px_#1b1b1b]">
+            ✓ Te decimos la verdad en 10 minutos
+          </span>
+<span class="bg-surface-container-lowest px-3 py-1.5 border-2 border-on-background shadow-[3px_3px_0px_0px_#1b1b1b]">
+            ✓ Si no te conviene te lo decimos de frente
+          </span>
+</div>
+</div>
+</section>
+</main>
+<!-- ========================================================================= -->
+<!-- 7. SHARED COMPONENT: Footer                                                -->
+<!-- ========================================================================= -->
+<footer class="bg-on-background border-t-4 border-on-background text-primary-container py-12">
+<div class="w-full px-6 py-12 flex flex-col md:flex-row justify-between items-center gap-6 max-w-7xl mx-auto">
+<!-- Brand & Copyright -->
+<div class="flex flex-col items-center md:items-start text-center md:text-left gap-2">
+<span class="font-headline-md text-headline-md uppercase font-black text-primary-container tracking-tight">
+          TALENTO CON TARIFA
+        </span>
+<p class="font-label-sm text-label-sm uppercase text-surface-container-highest max-w-md">
+          © 2025 TALENTO CON TARIFA. CERO CORTESÍA CORPORATIVA. TODOS LOS DERECHOS RESERVADOS.
+        </p>
+</div>
+<!-- Footer Navigation Links from JSON -->
+<div class="flex flex-wrap justify-center items-center gap-6 font-label-sm text-label-sm uppercase font-bold">
+<a class="text-surface-variant font-bold hover:text-primary-container transition-none active:translate-x-0.5 active:translate-y-0.5" href="#privacidad">
+          Privacidad Sin Rodeos
+        </a>
+<a class="text-surface-variant font-bold hover:text-primary-container transition-none active:translate-x-0.5 active:translate-y-0.5" href="#terminos">
+          Términos Sin Letra Chica
+        </a>
+<a class="text-primary-container font-black hover:text-primary-container transition-none active:translate-x-0.5 active:translate-y-0.5 underline" href="#contacto">
+          WhatsApp Directo
+        </a>
+<a class="text-surface-variant font-bold hover:text-primary-container transition-none active:translate-x-0.5 active:translate-y-0.5" href="#contacto">
+          Paga tu Tarifa
+        </a>
+</div>
+</div>
+</footer>
+</body></html>
